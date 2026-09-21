@@ -33,7 +33,11 @@ const routes: Routes = [
   {
     path: 'logout',
     loadChildren: () => import('./logout/logout.module').then( m => m.LogoutPageModule)
+  },  {
+    path: 'produkdetail',
+    loadChildren: () => import('./produkdetail/produkdetail.module').then( m => m.ProdukdetailPageModule)
   }
+
 ];
 
 @NgModule({

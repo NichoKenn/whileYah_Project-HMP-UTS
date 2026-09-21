@@ -13,4 +13,30 @@
       <ion-title size="large">Produk</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let data of produk">
+        <ion-card>
+          <img [src]="data.url" [alt]="data.nama" style="
+              display: block;
+              margin: 0 auto;
+              max-width: 100%;
+              height: auto;
+            " width="300px" />
+
+          <ion-card-header>
+            <ion-card-title>{{data.nama}}</ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            <ion-label>Kategori : {{data.kategori}}</ion-label>
+            <ion-label>Stok : {{data.stok}}</ion-label>
+            <ion-label>Harga per Unit : {{data.harga}}</ion-label>
+          </ion-card-content>
+
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

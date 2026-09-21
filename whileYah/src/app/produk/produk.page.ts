@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataProduk } from '../data-produk';
 
 @Component({
   selector: 'app-produk',
@@ -7,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   standalone: false,
 })
 export class ProdukPage implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  produk: any[] = [];
+    transaksi: any[] = [];
+  
+    constructor(
+      private dataProduk: DataProduk,
+    ) {}
+  
+    ngOnInit() {
+      this.produk = this.dataProduk.produk;
+    }
 }
