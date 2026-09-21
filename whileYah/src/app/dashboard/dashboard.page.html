@@ -1,13 +1,65 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>dashboard</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-app>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">dashboard</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</ion-content>
+  <ion-menu auto-hide="true" contentId="main-content">
+    <ion-header>
+      <ion-toolbar color="black">
+        <ion-title>Menu List</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+
+    <ion-content class="ion-padding">
+      <ion-list>
+        <ion-menu-toggle>
+          <ion-item routerLink="/dashboard">
+            <ion-icon name="home" slot="start"></ion-icon>
+            <ion-label>Dashboard</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle>
+          <ion-item routerLink="/produk">
+            <ion-icon name="list" slot="start"></ion-icon>
+            <ion-label>Produk</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle>
+          <ion-item routerLink="/transaksi">
+            <ion-icon name="document-text" slot="start"></ion-icon>
+            <ion-label>Transaksi</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle>
+          <ion-item routerLink="/profile">
+            <ion-icon name="person" slot="start"></ion-icon>
+            <ion-label>Profile</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+
+  <ion-router-outlet id="main-content"></ion-router-outlet>
+
+  <ion-tabs>
+    <ion-tab-bar slot="bottom" >
+      <ion-tab-button tab="pengaturan" routerLink="/pengaturan">
+        <ion-icon name="settings"></ion-icon>
+        <ion-label>Pengaturan</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="about" routerLink="/about">
+        <ion-icon name="help-circle-outline"></ion-icon>
+        <ion-label>About</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="logout" routerLink="/logout">
+        <ion-icon name="log-out-outline"></ion-icon>
+        <ion-label>Logout</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-app>
