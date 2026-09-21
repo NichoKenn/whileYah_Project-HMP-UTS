@@ -15,39 +15,17 @@
   </ion-header>
 
   <ion-grid>
-    <ion-row>
-      <ion-col size="6" *ngFor="let data of produk">
-        <ion-card>
-          <img [src]="data.url" [alt]="data.nama" style="
-              display: block;
-              margin: 0 auto;
-              max-width: 100%;
-              height: auto;
-            " width="300px" />
+    <ion-row *ngFor="let produk2 of chunkArray(produk, 2); let i = index">
+      <ion-col *ngFor="let data of produk2; let i2 = index">
+        <ion-list>
+          <ion-item class="gambar-produk">
+            <ion-img [src]="data.url"></ion-img>
+          </ion-item>
 
-          <ion-card-header>
-            <ion-item>
-              <ion-card-title>{{data.nama}}</ion-card-title>
-            </ion-item>
-
-          </ion-card-header>
-
-          <ion-card-content>
-            <ion-item>
-              <ion-label>Kategori : {{data.kategori}}</ion-label>
-            </ion-item>
-            <ion-item>
-              <ion-label>Stok : {{data.stok}}</ion-label>
-            </ion-item>
-            <ion-item>
-              <ion-label>Harga Jual : {{data.harga_jual}}</ion-label>
-            </ion-item>
-            <ion-item>
-              <ion-label>Harga Beli : {{data.harga_beli}}</ion-label>
-            </ion-item>
-          </ion-card-content>
-
-        </ion-card>
+          <ion-item class="nama-produk" routerLink="/produkdetail/{{(i*2)+i2}}">
+            {{data.nama}}
+          </ion-item>
+        </ion-list>
       </ion-col>
     </ion-row>
   </ion-grid>

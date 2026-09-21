@@ -9,13 +9,17 @@ import { DataProduk } from '../data-produk';
 })
 export class ProdukPage implements OnInit {
   produk: any[] = [];
-    transaksi: any[] = [];
-  
-    constructor(
-      private dataProduk: DataProduk,
-    ) {}
-  
-    ngOnInit() {
-      this.produk = this.dataProduk.produk;
+  constructor(private dataProduk: DataProduk) {}
+
+  ngOnInit() {
+    this.produk = this.dataProduk.produk;
+  }
+
+  chunkArray(arr: any[], chunkSize: number): any[][] {
+    const result = [];
+    for (let i = 0; i < arr.length; i += chunkSize) {
+      result.push(arr.slice(i, i + chunkSize));
     }
+    return result;
+  }
 }

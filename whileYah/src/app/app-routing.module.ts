@@ -13,7 +13,12 @@ const routes: Routes = [
   },
   {
     path: 'produk',
-    loadChildren: () => import('./produk/produk.module').then( m => m.ProdukPageModule) },
+    loadChildren: () => import('./produk/produk.module').then( m => m.ProdukPageModule) 
+  },
+  {
+    path: 'produkdetail/:id',
+    loadChildren: () => import('./produkdetail/produkdetail.module').then( m => m.ProdukdetailPageModule)
+  },
   {
     path: 'transaksi',
     loadChildren: () => import('./transaksi/transaksi.module').then( m => m.TransaksiPageModule)
@@ -33,11 +38,7 @@ const routes: Routes = [
   {
     path: 'logout',
     loadChildren: () => import('./logout/logout.module').then( m => m.LogoutPageModule)
-  },  {
-    path: 'produkdetail',
-    loadChildren: () => import('./produkdetail/produkdetail.module').then( m => m.ProdukdetailPageModule)
   }
-
 ];
 
 @NgModule({
