@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataProduk } from '../data-produk';
-import { Transaksi } from '../transaksi';
+import { DataTransaksi } from '../data-transaksi';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,7 +14,7 @@ export class DashboardPage implements OnInit {
 
   constructor(
     private dataProduk: DataProduk,
-    private dataTransaksi: Transaksi,
+    private dataTransaksi: DataTransaksi,
   ) {}
 
   ngOnInit() {

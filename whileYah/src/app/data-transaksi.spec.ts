@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
-import { Transaksi } from './transaksi';
+import { DataTransaksi } from './data-transaksi';
 
-describe('Transaksi', () => {
-  let service: Transaksi;
+describe('DataTransaksi', () => {
+  let service: DataTransaksi;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(Transaksi);
+    service = TestBed.inject(DataTransaksi);
   });
 
   it('should be created', () => {
