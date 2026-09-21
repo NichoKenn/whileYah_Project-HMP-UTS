@@ -26,13 +26,25 @@
             " width="300px" />
 
           <ion-card-header>
-            <ion-card-title>{{data.nama}}</ion-card-title>
+            <ion-item>
+              <ion-card-title>{{data.nama}}</ion-card-title>
+            </ion-item>
+
           </ion-card-header>
 
           <ion-card-content>
-            <ion-label>Kategori : {{data.kategori}}</ion-label>
-            <ion-label>Stok : {{data.stok}}</ion-label>
-            <ion-label>Harga per Unit : {{data.harga}}</ion-label>
+            <ion-item>
+              <ion-label>Kategori : {{data.kategori}}</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>Stok : {{data.stok}}</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>Harga Jual : {{data.harga_jual}}</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label>Harga Beli : {{data.harga_beli}}</ion-label>
+            </ion-item>
           </ion-card-content>
 
         </ion-card>
