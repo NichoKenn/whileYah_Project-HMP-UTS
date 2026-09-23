@@ -13,16 +13,16 @@
       <ion-title size="large">Produk</ion-title>
     </ion-toolbar>
   </ion-header>
-
+    <ion-searchbar [(ngModel)]="searchTerm" placeholder="Cari nama barang disini yh bu "></ion-searchbar>
   <ion-grid>
-    <ion-row *ngFor="let produk2 of chunkArray(produk, 2); let i = index">
+    <ion-row *ngFor="let produk2 of chunkArray(filterProduk(), 2); let i = index">
       <ion-col *ngFor="let data of produk2; let i2 = index">
         <ion-list>
           <ion-item class="gambar-produk">
             <ion-img [src]="data.url"></ion-img>
           </ion-item>
 
-          <ion-item class="nama-produk" routerLink="/produkdetail/{{(i*2)+i2}}">
+          <ion-item class="nama-produk" routerLink="/produkdetail/{{getOriginalIndex(data)}}">
             {{data.nama}}
           </ion-item>
         </ion-list>

@@ -9,6 +9,7 @@ import { DataProduk } from '../data-produk';
 })
 export class ProdukPage implements OnInit {
   produk: any[] = [];
+  searchTerm:string="";
   constructor(private dataProduk: DataProduk) {}
 
   ngOnInit() {
@@ -21,5 +22,16 @@ export class ProdukPage implements OnInit {
       result.push(arr.slice(i, i + chunkSize));
     }
     return result;
+  }
+  filterProduk() {
+    if(!this.searchTerm) {
+      return this.produk;
+    }
+    return this.produk.filter(item => 
+      item.nama.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
+  }
+  getOriginalIndex(item: any): number {
+    return this.produk.indexOf(item);
   }
 }
