@@ -13,7 +13,7 @@
       <ion-title size="large">Produk</ion-title>
     </ion-toolbar>
   </ion-header>
-    <ion-searchbar [(ngModel)]="searchTerm" placeholder="Cari nama barang disini yh bu "></ion-searchbar>
+    <ion-searchbar [(ngModel)]="searchTerm" placeholder="Ketik nama barang disini..."></ion-searchbar>
   <ion-grid>
     <ion-row *ngFor="let produk2 of chunkArray(filterProduk(), 2); let i = index">
       <ion-col *ngFor="let data of produk2; let i2 = index">
