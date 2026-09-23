@@ -1,6 +1,8 @@
-import { Service } from '@angular/core';
+import { Injectable } from '@angular/core';
 
-@Service()
+@Injectable({
+    providedIn: 'root',
+})
 export class DataProduk {
 
     produk = [
@@ -47,6 +49,7 @@ export class DataProduk {
         {
             nama: "KACANG GARUDA",
             url: "https://image.astronauts.cloud/product-images/2026/7/ArchivoBlack19818cd_becd126d-ffe6-4841-be59-cc10597fb34d_900x900.jpg",
+            stok: 0,
             harga_beli: 10000,
             harga_jual: 12000,
             kategori: "camilan"
