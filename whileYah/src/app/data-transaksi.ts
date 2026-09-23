@@ -216,4 +216,23 @@ export class DataTransaksi {
             totalHarga: 37000,
         },
     ];
+    getSemuaTransaksi() {
+        return this.daftarTransaksi;
+    }
+
+    tambahTransaksi(p_id: string, p_tanggal: string, p_namaProduk: string, p_jumlah: number, p_totalHarga: number) {
+        this.daftarTransaksi.push({
+            id: p_id,
+            tanggal: p_tanggal,
+            namaProduk: p_namaProduk,
+            jumlah: p_jumlah,
+            totalHarga: p_totalHarga
+        });
+    }
+
+    hapusTransaksi(index: number) {
+        if (index >= 0 && index < this.daftarTransaksi.length) {
+            this.daftarTransaksi.splice(index, 1);
+        }
+    }
 }
