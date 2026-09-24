@@ -10,7 +10,9 @@ import { DataProduk } from '../data-produk';
 export class ProdukPage implements OnInit {
   produk: any[] = [];
   searchTerm:string="";
-  constructor(private dataProduk: DataProduk) {}
+  constructor(
+    private dataProduk: DataProduk
+  ) {}
 
   ngOnInit() {
     this.produk = this.dataProduk.produk;

@@ -20,6 +20,10 @@ const routes: Routes = [
     loadChildren: () => import('./produkdetail/produkdetail.module').then( m => m.ProdukdetailPageModule)
   },
   {
+    path: 'produkbaru',
+    loadChildren: () => import('./produkbaru/produkbaru.module').then( m => m.ProdukbaruPageModule)
+  },
+  {
     path: 'transaksi',
     loadChildren: () => import('./transaksi/transaksi.module').then( m => m.TransaksiPageModule)
   },
@@ -38,6 +42,10 @@ const routes: Routes = [
   {
     path: 'logout',
     loadChildren: () => import('./logout/logout.module').then( m => m.LogoutPageModule)
+  },
+  {
+    path: 'produkbaru',
+    loadChildren: () => import('./produkbaru/produkbaru.module').then( m => m.ProdukbaruPageModule)
   }
 ];
 
