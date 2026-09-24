@@ -35,7 +35,7 @@ export class DataKeranjang {
     }
   }
 
-  hapusItem(index: number) {
+  hapusItem(index: number) {  
     if (index >= 0 && index < this.keranjangItems.length) {
       this.keranjangItems.splice(index, 1);
     }

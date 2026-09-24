@@ -16,7 +16,9 @@
 
   <ion-list lines="inset" inset="true">
     <ion-item>
-      <ion-img [src]="produk[index].url" [alt]="produk[index].nama" style="width: auto; height: 400px;"></ion-img>
+      <ion-img [src]="produk[index].url ? produk[index].url : 'https://ubaya.cloud/no_image.jpg'" 
+        [alt]="produk[index].nama" style="width: auto; height: 400px;">
+      </ion-img>
     </ion-item>
 
     <ion-item>
@@ -49,4 +51,8 @@
       </ion-label>
     </ion-item>
   </ion-list>
+  <ion-button [disabled]="produk[index].stok===0" (click)="tambahKeKeranjang(produk[index])">
+    <ion-icon name="cart" slot="start"></ion-icon>
+    Tambah Ke Keranjang
+  </ion-button>
 </ion-content>

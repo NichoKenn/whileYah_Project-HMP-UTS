@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Keranjang Belanja</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/produk"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list *ngIf="isiKeranjang.length > 0">
+    <ion-item *ngFor="let item of isiKeranjang; let i = index">
+      <ion-label>
+        <h2>{{ item.nama }}</h2>
+        <p>Rp {{ item.harga_jual }} x {{ item.jumlah }}</p>
+      </ion-label>
+      <ion-note slot="end" color="primary">
+        Rp {{ item.harga_jual * item.jumlah }}
+      </ion-note>
+      <ion-button  (click)="hapus(i)">
+        <ion-icon name="trash" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer *ngIf="isiKeranjang.length > 0">
+  <ion-toolbar>
+    <ion-title size="small">Total: Rp {{ totalBelanja }}</ion-title>
+    <ion-button slot="end" color="success" class="ion-margin-end" (click)="checkout()">
+      Konfirmasi Transaksi
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
