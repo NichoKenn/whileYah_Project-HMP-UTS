@@ -23,7 +23,6 @@ export class ProdukdetailPage implements OnInit {
   tambahKeKeranjang(item:any) {
     if (item.stok> 0) {
     this.dataKeranjang.tambahItem(item.nama, item.harga_jual, 1);
-    item.stok-=1;
     alert(item.nama + ' berhasil ditambahkan ke keranjang!');
     }
    

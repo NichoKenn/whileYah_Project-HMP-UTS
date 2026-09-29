@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataKeranjang } from '../data-keranjang';
 import { DataTransaksi } from '../data-transaksi';
+import { DataProduk } from '../data-produk';
 
 @Component({
   selector: 'app-keranjang',
@@ -11,7 +12,7 @@ import { DataTransaksi } from '../data-transaksi';
 export class KeranjangPage implements OnInit {
   isiKeranjang: any[] = [];
   totalBelanja: number = 0;
-  constructor(private keranjangService:DataKeranjang, private transaksiService:DataTransaksi) { }
+  constructor(private keranjangService:DataKeranjang, private transaksiService:DataTransaksi,private dataProduk:DataProduk) { }
 
   ngOnInit() {
   }
@@ -31,6 +32,7 @@ export class KeranjangPage implements OnInit {
     let riwayatSaatIni = this.transaksiService.getSemuaTransaksi();
     let idBaru = 'TRX-' + (riwayatSaatIni.length + 1); 
     let tanggalSekarang = new Date().toLocaleDateString('id-ID'); 
+    let semuaProduk=this.dataProduk.produk;
 
     for (let i = 0; i < this.isiKeranjang.length; i++) {
       let item = this.isiKeranjang[i];
@@ -43,7 +45,12 @@ export class KeranjangPage implements OnInit {
         item.jumlah, 
         totalHargaItem
       );
+      let produkAsli = semuaProduk.find(p => p.nama === item.nama);
+      if (produkAsli) {
+        produkAsli.stok -= item.jumlah; 
+      }
     }
+    
     this.keranjangService.kosongkanKeranjang();
     this.isiKeranjang = [];
     this.totalBelanja = 0;
