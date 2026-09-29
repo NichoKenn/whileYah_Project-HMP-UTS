@@ -18,7 +18,7 @@ export class ProdukdetailPage implements OnInit {
   ngOnInit() {
     this.produk = this.dataProduk.produk;
     this.route.params.subscribe(params => {
-      this.index = params['id'];
+      this.index = parseInt(params['id'], 10);
     });
   }
   tambahKeKeranjang(item:any) {
@@ -38,5 +38,8 @@ export class ProdukdetailPage implements OnInit {
     if(this.jumlahBeli>1) {
       this.jumlahBeli--;
     }
+  }
+  ionViewWillEnter() {
+    this.produk=this.dataProduk.produk;
   }
 }

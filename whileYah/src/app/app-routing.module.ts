@@ -46,9 +46,14 @@ const routes: Routes = [
   {
     path: 'produkbaru',
     loadChildren: () => import('./produkbaru/produkbaru.module').then( m => m.ProdukbaruPageModule)
-  },  {
+  },
+  {
     path: 'keranjang',
     loadChildren: () => import('./keranjang/keranjang.module').then( m => m.KeranjangPageModule)
+  },
+  {
+    path: 'editproduk/:id',
+    loadChildren: () => import('./editproduk/editproduk.module').then( m => m.EditprodukPageModule)
   }
 
 ];

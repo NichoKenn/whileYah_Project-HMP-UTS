@@ -4,6 +4,12 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/produk"></ion-back-button>
     </ion-buttons>
+    <ion-buttons slot="end">
+        <ion-button routerLink="/editproduk/{{ index }}">
+            <ion-icon name="create-outline"></ion-icon>
+              <ion-label>Edit Produk</ion-label>
+        </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
