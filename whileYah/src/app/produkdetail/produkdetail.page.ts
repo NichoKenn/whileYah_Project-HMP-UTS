@@ -12,6 +12,7 @@ import { DataKeranjang } from '../data-keranjang';
 export class ProdukdetailPage implements OnInit {
   index = 0;
   produk: any[] = [];
+  jumlahBeli: number=1;
   constructor(private route: ActivatedRoute, private dataProduk: DataProduk,private dataKeranjang:DataKeranjang) { }
 
   ngOnInit() {
@@ -21,10 +22,21 @@ export class ProdukdetailPage implements OnInit {
     });
   }
   tambahKeKeranjang(item:any) {
-    if (item.stok> 0) {
-    this.dataKeranjang.tambahItem(item.nama, item.harga_jual, 1);
-    alert(item.nama + ' berhasil ditambahkan ke keranjang!');
+    
+    if (item.stok >= this.jumlahBeli) {
+      this.dataKeranjang.tambahItem(item.nama, Number(item.harga_jual), this.jumlahBeli);
+      alert(`${this.jumlahBeli} ${item.nama} berhasil ditambahkan ke keranjang!`);
+      this.jumlahBeli = 1;
     }
-   
+  }
+  tambahJumlah() {
+    if(this.jumlahBeli < this.produk[this.index].stok) {
+      this.jumlahBeli++
+    }
+  }
+  kurangJumlah() {
+    if(this.jumlahBeli>1) {
+      this.jumlahBeli--;
+    }
   }
 }
