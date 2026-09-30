@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder,FormGroup,Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular/nav-controller';
 import { DataProduk } from '../data-produk';
@@ -13,12 +13,14 @@ import { DataProduk } from '../data-produk';
 export class EditprodukPage implements OnInit {
   editForm!: FormGroup;
   indexProduk!: number;
+  isSubmitted: boolean = false;
+
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private navCtrl: NavController,
     private dataProduk: DataProduk
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.editForm = this.fb.group({
@@ -26,6 +28,7 @@ export class EditprodukPage implements OnInit {
       harga_jual: ['', [Validators.required, Validators.min(1)]],
       stok: ['', [Validators.required, Validators.min(0)]]
     });
+
     this.route.params.subscribe(params => {
       this.indexProduk = Number(params['id']);
       let produkAsli = this.dataProduk.produk[this.indexProduk];
@@ -38,7 +41,10 @@ export class EditprodukPage implements OnInit {
       }
     });
   }
+
   simpanEdit() {
+    this.isSubmitted = true;
+
     if (this.editForm.valid) {
       let dataLama = this.dataProduk.produk[this.indexProduk];
       this.dataProduk.editProduk(
@@ -52,9 +58,8 @@ export class EditprodukPage implements OnInit {
       );
 
       alert('SUKSES! Data diubah menjadi: ' + this.editForm.value.nama);
+      this.isSubmitted = false;
       this.navCtrl.navigateRoot('/produk');
-
-    } 
+    }
+  }
 }
-}
-
