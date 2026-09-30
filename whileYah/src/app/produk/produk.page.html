@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>Produk</ion-title>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
@@ -25,7 +25,7 @@
           </ion-item>
 
           <ion-item class="nama-produk" routerLink="/produkdetail/{{getOriginalIndex(data)}}">
-            {{data.nama}}
+            <ion-label><b>{{data.nama}}</b></ion-label>
           </ion-item>
         </ion-list>
       </ion-col>
@@ -34,15 +34,13 @@
 
 
 <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="fab-keranjang">
-  <ion-fab-button routerLink="/keranjang">
-    <ion-icon name="cart"></ion-icon>
-  </ion-fab-button>
-</ion-fab>
-
-
-<ion-fab vertical="bottom" horizontal="end" slot="fixed" class="fab-kiri">
-  <ion-fab-button routerLink="/produkbaru">
-    <ion-icon name="add"></ion-icon>
-  </ion-fab-button>
-</ion-fab>
+    <ion-fab-button routerLink="/keranjang" color="primary">
+      <ion-icon name="cart"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="fab-kiri">
+    <ion-fab-button routerLink="/produkbaru" color="secondary">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

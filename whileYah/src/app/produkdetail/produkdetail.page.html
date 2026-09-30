@@ -1,11 +1,11 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>Produk Detail</ion-title>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/produk"></ion-back-button>
     </ion-buttons>
     <ion-buttons slot="end">
-        <ion-button routerLink="/editproduk/{{ index }}">
+        <ion-button color="secondary" routerLink="/editproduk/{{ index }}">
             <ion-icon name="create-outline"></ion-icon>
               <ion-label>Edit Produk</ion-label>
         </ion-button>
@@ -29,7 +29,7 @@
 
     <ion-item>
       <ion-label>
-        <h1>{{produk[index].nama}}</h1>
+        <h1><b>{{produk[index].nama}}</b></h1>
       </ion-label>
     </ion-item>
 
@@ -47,7 +47,7 @@
 
     <ion-item>
       <ion-label>
-        Harga Jual : {{produk[index].harga_jual}}
+        Harga Jual : <ion-text color="secondary"><b>Rp {{produk[index].harga_jual}}</b></ion-text>
       </ion-label>
     </ion-item>
 
@@ -63,18 +63,18 @@
       <ion-label style="font-weight: bold;">Atur Jumlah:</ion-label>
 
       <div style="display: flex; align-items: center;">
-        <ion-button fill="outline" size="small" (click)="kurangJumlah()" [disabled]="jumlahBeli <= 1">
+        <ion-button fill="outline" size="small" color="secondary" (click)="kurangJumlah()" [disabled]="jumlahBeli <= 1">
           <ion-icon name="remove"></ion-icon>
         </ion-button>
         <span style="margin: 0 15px; font-weight: bold; font-size: 18px;">
           {{ jumlahBeli }}
         </span>
-        <ion-button fill="outline" size="small" (click)="tambahJumlah()" [disabled]="jumlahBeli >= produk[index].stok">
+        <ion-button fill="outline" size="small" color="secondary" (click)="tambahJumlah()" [disabled]="jumlahBeli >= produk[index].stok">
           <ion-icon name="add"></ion-icon>
         </ion-button>
       </div>
     </div>
-    <ion-button expand="block" [disabled]="produk[index].stok===0" (click)="tambahKeKeranjang(produk[index])">
+    <ion-button expand="block" color="primary" [disabled]="produk[index].stok===0" (click)="tambahKeKeranjang(produk[index])">
       <ion-icon name="cart" slot="start"></ion-icon>
       Tambah Ke Keranjang
     </ion-button>
