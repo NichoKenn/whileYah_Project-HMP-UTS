@@ -9,20 +9,32 @@
 
 <ion-content [fullscreen]="true">
   <ion-list *ngIf="isiKeranjang.length > 0">
-    <ion-item *ngFor="let item of isiKeranjang; let i = index">
-      <ion-label>
-        <h2>{{ item.nama }}</h2>
-        <p>Rp {{ item.harga_jual }} x {{ item.jumlah }}</p>
-      </ion-label>
-      <ion-note slot="end" color="primary">
-        Rp {{ item.harga_jual * item.jumlah }}
-      </ion-note>
-      <ion-button  (click)="hapus(i)">
-        <ion-icon name="trash" slot="icon-only"></ion-icon>
-      </ion-button>
-    </ion-item>
+    <ion-item-sliding *ngFor="let item of isiKeranjang; let i = index">
+      <ion-item>
+        <ion-label>
+          <h2><b>{{ item.nama }}</b></h2>
+          <p>Jumlah: {{ item.jumlah }} x Rp {{ item.harga_jual }}</p>
+        </ion-label>
+        <ion-note slot="end" color="primary">
+          Rp {{ item.jumlah * item.harga_jual }}
+        </ion-note>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option color="danger" (click)="hapus(i)">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+
+    </ion-item-sliding> 
+    
   </ion-list>
-</ion-content>
+
+ 
+    <div *ngIf="isiKeranjang.length === 0">
+      <p>Keranjang masih kosong.</p>
+    </div>
+  </ion-content>
+
 <ion-footer *ngIf="isiKeranjang.length > 0">
   <ion-toolbar>
     <ion-title size="small">Total: Rp {{ totalBelanja }}</ion-title>
