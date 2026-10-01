@@ -13,7 +13,7 @@ export class DataProduk {
             stok: 15,
             harga_beli: 90000,
             harga_jual: 98000,
-            kategori: "sembako"
+            kategori: "Sembako"
         },
         {
             id: "P002",
@@ -22,7 +22,7 @@ export class DataProduk {
             stok: 0,
             harga_beli: 33000,
             harga_jual: 37000,
-            kategori: "sembako"
+            kategori: "Sembako"
         },
         {
             id: "P003",
@@ -31,7 +31,7 @@ export class DataProduk {
             stok: 20,
             harga_beli: 11000,
             harga_jual: 13000,
-            kategori: "sembako"
+            kategori: "Sembako"
         },
         {
             id: "P004",
@@ -40,7 +40,7 @@ export class DataProduk {
             stok: 25,
             harga_beli: 18000,
             harga_jual: 22000,
-            kategori: "camilan"
+            kategori: "Camilan"
         },
         {
             id: "P005",
@@ -49,7 +49,7 @@ export class DataProduk {
             stok: 5,
             harga_beli: 45000,
             harga_jual: 50000,
-            kategori: "camilan"
+            kategori: "Camilan"
         },
         {
             id: "P006",
@@ -58,7 +58,7 @@ export class DataProduk {
             stok: 0,
             harga_beli: 10000,
             harga_jual: 12000,
-            kategori: "camilan"
+            kategori: "Camilan"
         },
         {
             id: "P007",
@@ -67,7 +67,7 @@ export class DataProduk {
             stok: 18,
             harga_beli: 8000,
             harga_jual: 10000,
-            kategori: "obat"
+            kategori: "Obat"
         },
         {
             id: "P008",
@@ -76,7 +76,7 @@ export class DataProduk {
             stok: 20,
             harga_beli: 10000,
             harga_jual: 12000,
-            kategori: "obat"
+            kategori: "Obat"
         },
         {
             id: "P009",
@@ -85,7 +85,7 @@ export class DataProduk {
             stok: 23,
             harga_beli: 6500,
             harga_jual: 8000,
-            kategori: "obat"
+            kategori: "Obat"
         },
         {
             id: "P010",
@@ -94,7 +94,7 @@ export class DataProduk {
             stok: 25,
             harga_beli: 5000,
             harga_jual: 6000,
-            kategori: "minuman"
+            kategori: "Minuman"
         },
         {
             id: "P011",
@@ -103,7 +103,7 @@ export class DataProduk {
             stok: 10,
             harga_beli: 4000,
             harga_jual: 5000,
-            kategori: "minuman"
+            kategori: "Minuman"
         },
         {
             id: "P012",
@@ -112,7 +112,7 @@ export class DataProduk {
             stok: 0,
             harga_beli: 12500,
             harga_jual: 15000,
-            kategori: "minuman"
+            kategori: "Minuman"
         },
         {
             id: "P013",
@@ -121,7 +121,7 @@ export class DataProduk {
             stok: 20,
             harga_beli: 10000,
             harga_jual: 12000,
-            kategori: "kebersihan"
+            kategori: "Kebersihan"
         },
         {
             id: "P014",
@@ -130,7 +130,7 @@ export class DataProduk {
             stok: 15,
             harga_beli: 22000,
             harga_jual: 25000,
-            kategori: "kebersihan"
+            kategori: "Kebersihan"
         },
         {
             id: "P015",
@@ -139,7 +139,7 @@ export class DataProduk {
             stok: 5,
             harga_beli: 28000,
             harga_jual: 32000,
-            kategori: "kebersihan"
+            kategori: "Kebersihan"
         },
     ];
 
