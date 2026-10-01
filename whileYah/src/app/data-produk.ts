@@ -81,7 +81,7 @@ export class DataProduk {
         {
             id: "P009",
             nama: "OSKADON",
-            url: "https://d2qjkwm11akmwu.cloudfront.net/products/399190_21-3-2023_14-22-21.webp",
+            url: "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/img/VqbcmM/2024/8/12/126c7491-007c-4662-90dc-da985df8665f.jpg~tplv-aphluv4xwc-resize-jpeg:700:0.jpg",
             stok: 23,
             harga_beli: 6500,
             harga_jual: 8000,
