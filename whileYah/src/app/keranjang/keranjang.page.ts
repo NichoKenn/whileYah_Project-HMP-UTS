@@ -15,8 +15,14 @@ export class KeranjangPage implements OnInit {
   constructor(private keranjangService:DataKeranjang, private transaksiService:DataTransaksi,private dataProduk:DataProduk) { }
 
   ngOnInit() {
+    this.muatKeranjang();
   }
+
   ionViewWillEnter() {
+    this.muatKeranjang();
+  }
+
+  muatKeranjang() {
     this.isiKeranjang = this.keranjangService.getKeranjang();
     this.totalBelanja = this.keranjangService.hitungTotal();
   }

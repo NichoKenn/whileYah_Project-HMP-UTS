@@ -18,7 +18,7 @@ export class ProdukPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.produk = this.dataProduk.produk;
+    this.inisialisasiProduk();
   }
 
   ionViewWillEnter() {
