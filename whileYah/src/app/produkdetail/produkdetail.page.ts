@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataProduk } from '../data-produk';
-import { DataKeranjang } from '../data-keranjang';
-
+  
 @Component({
   selector: 'app-produkdetail',
   templateUrl: './produkdetail.page.html',

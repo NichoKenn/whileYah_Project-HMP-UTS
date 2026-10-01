@@ -8,67 +8,58 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <form [formGroup]="produkForm" (ngSubmit)="submitProduk()">
+  <form (ngSubmit)="submitProduk()">
     <ion-list>
       <ion-item>
-        <ion-input label="Nama Produk" labelPlacement="floating" placeholder="Masukkan nama produk" 
-          formControlName="nama">
+        <ion-input label="Nama Produk" labelPlacement="floating" placeholder="Masukkan nama produk"
+          type="text" [(ngModel)]="nama" name="nama">
         </ion-input>
       </ion-item>
-      <ion-text color="danger" *ngIf="(produkForm.get('nama')?.touched || isSubmitted) && produkForm.get('nama')?.errors?.['required']">
+      <ion-text color="danger" *ngIf="isSubmitted && nama === ''">
         <p style="padding-left: 16px; font-size: 12px; margin-top: 5px;">Nama produk wajib diisi.</p>
       </ion-text>
 
       <ion-item>
-        <ion-input type="url" label="URL Gambar" labelPlacement="floating" placeholder="https://contoh.com/gambar.jpg" 
-          formControlName="url">
+        <ion-input type="url" label="URL Gambar" labelPlacement="floating" placeholder="https://contoh.com/gambar.jpg"
+          [(ngModel)]="url" name="url">
         </ion-input>
       </ion-item>
-      <img *ngIf="produkForm.get('url')?.value" [src]="produkForm.get('url')?.value" style="max-width: 150px; max-height: 150px; object-fit: cover; margin: 10px auto; display: block;" />
+      <img *ngIf="url" [src]="url" style="max-width: 150px; max-height: 150px; object-fit: cover; margin: 10px auto; display: block;" />
 
       <ion-item>
-        <ion-input type="number" label="Stok" labelPlacement="floating" placeholder="Masukkan jumlah stok" 
-          formControlName="stok">
+        <ion-input type="number" label="Stok" labelPlacement="floating" placeholder="Masukkan jumlah stok"
+          [(ngModel)]="stok" name="stok">
         </ion-input>
       </ion-item>
-      <ion-text color="danger" *ngIf="(produkForm.get('stok')?.touched || isSubmitted) && produkForm.get('stok')?.errors?.['required']">
-        <p style="padding-left: 16px; font-size: 12px; margin-top: 5px;">Stok wajib diisi.</p>
-      </ion-text>
-      <ion-text color="danger" *ngIf="(produkForm.get('stok')?.touched || isSubmitted) && produkForm.get('stok')?.errors?.['min']">
+      <ion-text color="danger" *ngIf="isSubmitted && stok < 0">
         <p style="padding-left: 16px; font-size: 12px; margin-top: 5px;">Stok tidak boleh negatif.</p>
       </ion-text>
 
       <ion-item>
-        <ion-input type="number" label="Harga Beli (Rp)" labelPlacement="floating" placeholder="Masukkan harga beli" 
-          formControlName="harga_beli">
+        <ion-input type="number" label="Harga Beli (Rp)" labelPlacement="floating" placeholder="Masukkan harga beli"
+          [(ngModel)]="harga_beli" name="harga_beli">
         </ion-input>
       </ion-item>
-      <ion-text color="danger" *ngIf="(produkForm.get('harga_beli')?.touched || isSubmitted) && produkForm.get('harga_beli')?.errors?.['required']">
-        <p style="padding-left: 16px; font-size: 12px; margin-top: 5px;">Harga beli wajib diisi.</p>
-      </ion-text>
-      <ion-text color="danger" *ngIf="(produkForm.get('harga_beli')?.touched || isSubmitted) && produkForm.get('harga_beli')?.errors?.['min']">
+      <ion-text color="danger" *ngIf="isSubmitted && harga_beli <= 0">
         <p style="padding-left: 16px; font-size: 12px; margin-top: 5px;">Harga beli harus lebih dari 0.</p>
       </ion-text>
 
       <ion-item>
-        <ion-input type="number" label="Harga Jual (Rp)" labelPlacement="floating" placeholder="Masukkan harga jual" 
-          formControlName="harga_jual">
+        <ion-input type="number" label="Harga Jual (Rp)" labelPlacement="floating" placeholder="Masukkan harga jual"
+          [(ngModel)]="harga_jual" name="harga_jual">
         </ion-input>
       </ion-item>
-      <ion-text color="danger" *ngIf="(produkForm.get('harga_jual')?.touched || isSubmitted) && produkForm.get('harga_jual')?.errors?.['required']">
-        <p style="padding-left: 16px; font-size: 12px; margin-top: 5px;">Harga jual wajib diisi.</p>
-      </ion-text>
-      <ion-text color="danger" *ngIf="(produkForm.get('harga_jual')?.touched || isSubmitted) && produkForm.get('harga_jual')?.errors?.['min']">
+      <ion-text color="danger" *ngIf="isSubmitted && harga_jual <= 0">
         <p style="padding-left: 16px; font-size: 12px; margin-top: 5px;">Harga jual harus lebih dari 0.</p>
       </ion-text>
 
       <ion-item>
-        <ion-select label="Kategori" labelPlacement="floating" placeholder="Pilih kategori" 
-          formControlName="kategori">
+        <ion-select label="Kategori" labelPlacement="floating" placeholder="Pilih kategori"
+          [(ngModel)]="kategori" name="kategori">
           <ion-select-option *ngFor="let kat of arr_kategori" [value]="kat">{{ kat }}</ion-select-option>
         </ion-select>
       </ion-item>
-      <ion-text color="danger" *ngIf="(produkForm.get('kategori')?.touched || isSubmitted) && produkForm.get('kategori')?.errors?.['required']">
+      <ion-text color="danger" *ngIf="isSubmitted && kategori === ''">
         <p style="padding-left: 16px; font-size: 12px; margin-top: 5px;">Kategori wajib dipilih.</p>
       </ion-text>
 

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { DataProduk } from '../data-produk';
 import { Router } from '@angular/router';
 
@@ -10,7 +9,12 @@ import { Router } from '@angular/router';
   standalone: false,
 })
 export class ProdukbaruPage implements OnInit {
-  produkForm!: FormGroup;
+  nama: string = '';
+  url: string = '';
+  stok: number = 0;
+  harga_beli: number = 0;
+  harga_jual: number = 0;
+  kategori: string = '';
 
   arr_kategori: string[] = [
     'sembako',
@@ -27,15 +31,16 @@ export class ProdukbaruPage implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit() {
-    this.produkForm = new FormGroup({
-      nama: new FormControl('', [Validators.required]),
-      url: new FormControl(''),
-      stok: new FormControl(0, [Validators.required, Validators.min(0)]),
-      harga_beli: new FormControl(0, [Validators.required, Validators.min(1)]),
-      harga_jual: new FormControl(0, [Validators.required, Validators.min(1)]),
-      kategori: new FormControl('', [Validators.required])
-    });
+  ngOnInit() {}
+
+  cekValidasi(): boolean {
+    return (
+      this.nama !== '' &&
+      this.stok >= 0 &&
+      this.harga_beli > 0 &&
+      this.harga_jual > 0 &&
+      this.kategori !== ''
+    );
   }
 
   generateIdOtomatis(): string {
@@ -55,30 +60,30 @@ export class ProdukbaruPage implements OnInit {
   submitProduk() {
     this.isSubmitted = true;
 
-    if (this.produkForm.valid) {
+    if (this.cekValidasi()) {
       const idBaru = this.generateIdOtomatis();
-      const formValue = this.produkForm.value;
 
       const berhasil = this.dataProduk.tambahProduk(
         idBaru,
-        formValue.nama,
-        formValue.url,
-        formValue.stok,
-        formValue.harga_beli,
-        formValue.harga_jual,
-        formValue.kategori
+        this.nama,
+        this.url,
+        this.stok,
+        this.harga_beli,
+        this.harga_jual,
+        this.kategori
       );
 
       if (berhasil) {
-        this.produkForm.reset({ 
-          stok: 0, 
-          harga_beli: 0, 
-          harga_jual: 0 });
+        this.nama = '';
+        this.url = '';
+        this.stok = 0;
+        this.harga_beli = 0;
+        this.harga_jual = 0;
+        this.kategori = '';
         this.isSubmitted = false;
 
         this.router.navigate(['/produk']);
       }
-
     } else {
       console.log('Form belum valid!');
     }

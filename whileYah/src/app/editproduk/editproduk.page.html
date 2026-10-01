@@ -8,135 +8,56 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <form [formGroup]="editForm" (ngSubmit)="simpanEdit()">
+  <form (ngSubmit)="simpanEdit()">
     <ion-list>
       <ion-item>
-        <ion-input
-          label="Nama Produk"
-          labelPlacement="floating"
-          placeholder="Nama wajib diisi"
-          type="text"
-          formControlName="nama"
-        >
+        <ion-input label="Nama Produk" labelPlacement="floating" placeholder="Nama wajib diisi"
+          type="text" [(ngModel)]="nama" name="nama">
         </ion-input>
       </ion-item>
-      <ion-text
-        color="danger"
-        *ngIf="(editForm.get('nama')?.touched || isSubmitted) && editForm.get('nama')?.errors?.['required']"
-      >
-        <p style="padding-left: 16px; font-size: 12px; margin-top: 5px">
-          Nama produk wajib diisi.
-        </p>
+      <ion-text color="danger" *ngIf="isSubmitted && nama === ''">
+        <p style="padding-left: 16px; font-size: 12px; margin-top: 5px;">Nama produk wajib diisi.</p>
       </ion-text>
 
       <ion-item>
-        <ion-select
-          label="Kategori"
-          labelPlacement="floating"
-          placeholder="Pilih kategori"
-          formControlName="kategori"
-        >
-          <ion-select-option *ngFor="let kat of arr_kategori" [value]="kat"
-            >{{ kat }}</ion-select-option
-          >
+        <ion-select label="Kategori" labelPlacement="floating" placeholder="Pilih kategori"
+          [(ngModel)]="kategori" name="kategori">
+          <ion-select-option *ngFor="let kat of arr_kategori" [value]="kat">{{ kat }}</ion-select-option>
         </ion-select>
       </ion-item>
-      <ion-text
-        color="danger"
-        *ngIf="(editForm.get('kategori')?.touched || isSubmitted) && editForm.get('kategori')?.errors?.['required']"
-      >
-        <p style="padding-left: 16px; font-size: 12px; margin-top: 5px">
-          Kategori wajib dipilih.
-        </p>
+      <ion-text color="danger" *ngIf="isSubmitted && kategori === ''">
+        <p style="padding-left: 16px; font-size: 12px; margin-top: 5px;">Kategori wajib dipilih.</p>
       </ion-text>
 
       <ion-item>
-        <ion-input
-          label="Stok Barang"
-          labelPlacement="floating"
-          placeholder="Stok wajib diisi"
-          type="number"
-          formControlName="stok"
-        >
+        <ion-input label="Stok Barang" labelPlacement="floating" placeholder="Stok wajib diisi"
+          type="number" [(ngModel)]="stok" name="stok">
         </ion-input>
       </ion-item>
-      <ion-text
-        color="danger"
-        *ngIf="(editForm.get('stok')?.touched || isSubmitted) && editForm.get('stok')?.errors?.['required']"
-      >
-        <p style="padding-left: 16px; font-size: 12px; margin-top: 5px">
-          Stok wajib diisi.
-        </p>
-      </ion-text>
-      <ion-text
-        color="danger"
-        *ngIf="(editForm.get('stok')?.touched || isSubmitted) && editForm.get('stok')?.errors?.['min']"
-      >
-        <p style="padding-left: 16px; font-size: 12px; margin-top: 5px">
-          Stok tidak boleh negatif.
-        </p>
+      <ion-text color="danger" *ngIf="isSubmitted && stok < 0">
+        <p style="padding-left: 16px; font-size: 12px; margin-top: 5px;">Stok tidak boleh negatif.</p>
       </ion-text>
 
       <ion-item>
-        <ion-input
-          label="Harga Jual (Rp)"
-          labelPlacement="floating"
-          placeholder="Harga jual wajib diisi"
-          type="number"
-          formControlName="harga_jual"
-        >
+        <ion-input label="Harga Jual (Rp)" labelPlacement="floating" placeholder="Harga jual wajib diisi"
+          type="number" [(ngModel)]="harga_jual" name="harga_jual">
         </ion-input>
       </ion-item>
-      <ion-text
-        color="danger"
-        *ngIf="(editForm.get('harga_jual')?.touched || isSubmitted) && editForm.get('harga_jual')?.errors?.['required']"
-      >
-        <p style="padding-left: 16px; font-size: 12px; margin-top: 5px">
-          Harga jual wajib diisi.
-        </p>
-      </ion-text>
-      <ion-text
-        color="danger"
-        *ngIf="(editForm.get('harga_jual')?.touched || isSubmitted) && editForm.get('harga_jual')?.errors?.['min']"
-      >
-        <p style="padding-left: 16px; font-size: 12px; margin-top: 5px">
-          Harga jual harus lebih dari 0.
-        </p>
+      <ion-text color="danger" *ngIf="isSubmitted && harga_jual <= 0">
+        <p style="padding-left: 16px; font-size: 12px; margin-top: 5px;">Harga jual harus lebih dari 0.</p>
       </ion-text>
 
       <ion-item>
-        <ion-input
-          label="Harga Beli (Rp)"
-          labelPlacement="floating"
-          placeholder="Harga beli wajib diisi"
-          type="number"
-          formControlName="harga_beli"
-        >
+        <ion-input label="Harga Beli (Rp)" labelPlacement="floating" placeholder="Harga beli wajib diisi"
+          type="number" [(ngModel)]="harga_beli" name="harga_beli">
         </ion-input>
       </ion-item>
-      <ion-text
-        color="danger"
-        *ngIf="(editForm.get('harga_beli')?.touched || isSubmitted) && editForm.get('harga_beli')?.errors?.['required']"
-      >
-        <p style="padding-left: 16px; font-size: 12px; margin-top: 5px">
-          Harga beli wajib diisi.
-        </p>
-      </ion-text>
-      <ion-text
-        color="danger"
-        *ngIf="(editForm.get('harga_beli')?.touched || isSubmitted) && editForm.get('harga_beli')?.errors?.['min']"
-      >
-        <p style="padding-left: 16px; font-size: 12px; margin-top: 5px">
-          Harga beli harus lebih dari 0.
-        </p>
+      <ion-text color="danger" *ngIf="isSubmitted && harga_beli <= 0">
+        <p style="padding-left: 16px; font-size: 12px; margin-top: 5px;">Harga beli harus lebih dari 0.</p>
       </ion-text>
 
       <ion-item lines="none">
-        <ion-button
-          type="submit"
-          expand="block"
-          style="width: 100%; margin-top: 16px"
-        >
+        <ion-button type="submit" expand="block" style="width: 100%; margin-top: 16px;">
           Update Produk
         </ion-button>
       </ion-item>
