@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DataKeranjang } from '../data-keranjang';
+import { DataTransaksi } from '../data-transaksi';
+import { DataProduk } from '../data-produk';
 
 @Component({
   selector: 'app-transaksi',
@@ -7,10 +10,13 @@ import { Component, OnInit } from '@angular/core';
   standalone: false,
 })
 export class TransaksiPage implements OnInit {
-
-  constructor() { }
+  isiTransaksi: any[] = [];
+  constructor(private keranjangService: DataKeranjang, private transaksiService: DataTransaksi, private dataProduk: DataProduk) { }
 
   ngOnInit() {
+    this.muatTransaksi()
   }
-
+  muatTransaksi() {
+    this.isiTransaksi = this.transaksiService.getSemuaTransaksi();
+  }
 }
