@@ -117,7 +117,7 @@ export class DataProduk {
         {
             id: "P013",
             nama: "SABUN EKONOMI",
-            url: "https://media.monotaro.id/mid01/big/Alat%20%26%20Kebutuhan%20Kebersihan/Deterjen/Deterjen%2FSabun%20Cuci%20Baju/Ekonomi%20Sabun%20Krim%20Anti%20Noda/8zP101549323-6.jpg",
+            url: "",
             stok: 20,
             harga_beli: 10000,
             harga_jual: 12000,
