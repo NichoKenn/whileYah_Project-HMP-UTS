@@ -11,10 +11,12 @@
 
   <ion-list *ngIf="isiTransaksi.length > 0">
     <ion-card *ngFor="let item of isiTransaksi; let i = index">
-      <ion-card-header>
+      <ion-card-header color="primary">
+        <ion-label style="text-align: center;">{{item.id}}</ion-label>
+      </ion-card-header>
+      <ion-card-content>
         <ion-item>
           <ion-label>
-            <ion-badge color="primary">{{item.id}}</ion-badge>
             <h2><b>{{ item.namaProduk }}</b></h2>
             <p>Jumlah: {{ item.jumlah }}</p>
           </ion-label>
@@ -25,7 +27,7 @@
         <ion-item>
           <ion-label>Total belanja: Rp.{{ item.totalHarga }}</ion-label>
         </ion-item>
-      </ion-card-header>
+      </ion-card-content>
     </ion-card>
   </ion-list>
 
