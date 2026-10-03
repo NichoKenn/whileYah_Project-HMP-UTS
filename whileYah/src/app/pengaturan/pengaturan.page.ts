@@ -7,10 +7,21 @@ import { Component, OnInit } from '@angular/core';
   standalone: false,
 })
 export class PengaturanPage implements OnInit {
-
-  constructor() { }
+  isDarkMode = false;
+  constructor() {}
 
   ngOnInit() {
+    this.isDarkMode = document.body.classList.contains('dark');
   }
 
+  gantiTema(event: any) {
+    const isChecked = event.detail.checked;
+    if (isChecked) {
+      document.body.classList.remove('light');
+      document.body.classList.add('dark');
+    } else {
+      document.body.classList.remove('dark');
+      document.body.classList.add('light');
+    }
+  }
 }
