@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { NavController } from '@ionic/angular/nav-controller';
+import { Router, ActivatedRoute } from '@angular/router';
 import { DataProduk } from '../data-produk';
 
 @Component({
@@ -23,7 +22,7 @@ export class EditprodukPage implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private navCtrl: NavController,
+    private router: Router,
     private dataProduk: DataProduk
   ) {}
 
@@ -68,7 +67,7 @@ export class EditprodukPage implements OnInit {
 
       alert('SUKSES! Data diubah menjadi: ' + this.nama);
       this.isSubmitted = false;
-      this.navCtrl.navigateRoot('/produk');
+      this.router.navigate(['/produk']);
     }
   }
 }

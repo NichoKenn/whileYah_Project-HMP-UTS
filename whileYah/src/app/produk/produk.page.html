@@ -21,9 +21,9 @@
 
   <ion-grid>
     <ion-row
-      *ngFor="let produk2 of chunkArray(filterProduk(), 2); trackBy: trackByIndex"
+      *ngFor="let produk2 of chunkArray(filterProduk(), 2)"
     >
-      <ion-col *ngFor="let data of produk2; trackBy: trackByIndex">
+      <ion-col *ngFor="let data of produk2">
         <ion-card
           style="
             margin: 5px;

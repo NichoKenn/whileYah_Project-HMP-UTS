@@ -23,7 +23,7 @@ export class ProdukPage implements OnInit {
     this.inisialisasiProduk();
   }
 
-  ionViewWillEnter() {
+  ionViewDidEnter() {
     this.inisialisasiProduk();
   }
 
@@ -84,9 +84,6 @@ export class ProdukPage implements OnInit {
     }
   }
 
-  trackByIndex(index: number, item: any) {
-    return index;
-  }
 
   // Animasi saat mouse menyorot tombol (Membesar)
   hoverMasuk(event: any) {
