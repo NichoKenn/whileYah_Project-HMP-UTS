@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DataProduk } from '../data-produk';
 import { DataKeranjang } from '../data-keranjang';
 import { AnimationController } from '@ionic/angular';
+import { Login } from '../login';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-produk',
@@ -12,14 +14,21 @@ import { AnimationController } from '@ionic/angular';
 export class ProdukPage implements OnInit {
   produk: any[] = [];
   searchTerm: string = '';
+  isLogin = false;
 
   constructor(
     private dataProduk: DataProduk,
     private dataKeranjang: DataKeranjang,
     private animationCtrl: AnimationController,
+    private login: Login,
+    private router: Router,
   ) {}
 
   ngOnInit() {
+    this.isLogin = this.login.isLogin;
+    if (!this.isLogin) {
+      this.router.navigate(['/login']);
+    }
     this.inisialisasiProduk();
   }
 
@@ -83,7 +92,6 @@ export class ProdukPage implements OnInit {
       item.jumlah = 1;
     }
   }
-
 
   // Animasi saat mouse menyorot tombol (Membesar)
   hoverMasuk(event: any) {

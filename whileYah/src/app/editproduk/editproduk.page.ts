@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DataProduk } from '../data-produk';
+import { Login } from '../login';
 
 @Component({
   selector: 'app-editproduk',
@@ -11,6 +12,7 @@ import { DataProduk } from '../data-produk';
 export class EditprodukPage implements OnInit {
   indexProduk!: number;
   isSubmitted: boolean = false;
+  isLogin = false;
 
   nama: string = '';
   harga_beli: number = 0;
@@ -18,16 +20,27 @@ export class EditprodukPage implements OnInit {
   stok: number = 0;
   kategori: string = '';
 
-  arr_kategori: string[] = ['sembako', 'camilan', 'obat', 'minuman', 'kebersihan'];
+  arr_kategori: string[] = [
+    'sembako',
+    'camilan',
+    'obat',
+    'minuman',
+    'kebersihan',
+  ];
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private dataProduk: DataProduk
+    private dataProduk: DataProduk,
+    private login: Login,
   ) {}
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
+    this.isLogin = this.login.isLogin;
+    if (!this.isLogin) {
+      this.router.navigate(['/login']);
+    }
+    this.route.params.subscribe((params) => {
       this.indexProduk = Number(params['id']);
       let produkAsli = this.dataProduk.produk[this.indexProduk];
       if (produkAsli) {
@@ -62,7 +75,7 @@ export class EditprodukPage implements OnInit {
         this.stok,
         this.harga_beli,
         this.harga_jual,
-        this.kategori
+        this.kategori,
       );
 
       alert('SUKSES! Data diubah menjadi: ' + this.nama);

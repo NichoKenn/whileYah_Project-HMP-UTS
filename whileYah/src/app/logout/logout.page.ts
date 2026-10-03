@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Login } from '../login';
 
 @Component({
   selector: 'app-logout',
@@ -8,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogoutPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private login: Login,
+    private router: Router,
+  ) {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  logout() {
+    this.login.isLogin = false;
+    this.router.navigate(['/login']);
   }
 
+  batal() {
+    this.router.navigate(['/dashboard']);
+  }
 }

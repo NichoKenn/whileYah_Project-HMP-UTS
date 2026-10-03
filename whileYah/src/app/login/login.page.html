@@ -11,40 +11,48 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-card>
-    <ion-card-header>
-      <label>Selamat Datang di SIMOBILE</label>
-      <label>Masukan Username dan Password terlebih dahulu!</label>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-item>
-        <ion-input
-          label="Username:"
-          labelPlacement="floating"
-          placeholder="Masukkan username anda"
-          type="text"
-          [(ngModel)]="username"
-        >
-        </ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input
-          label="Password:"
-          labelPlacement="floating"
-          placeholder="Masukkan password anda"
-          type="text"
-          [(ngModel)]="password"
-        >
-        </ion-input>
-      </ion-item>
-      <ion-text *ngIf="sudahCoba && !hasilCek" color="danger">
-        <p style="text-align: center">Username atau password salah!</p>
-      </ion-text>
-      <ion-item lines="none">
-        <ion-button (click)="cekLogin()" style="width: 100%; margin-top: 16px"
-          >Login</ion-button
-        >
-      </ion-item>
-    </ion-card-content>
-  </ion-card>
+  <div class="container-tengah">
+    <ion-card>
+      <ion-card-header>
+        <ion-text>
+          <p style="text-align: center; font-weight: bold">
+            Selamat Datang di SIMOBILE
+          </p>
+          <p style="text-align: center">
+            Masukan Username dan Password terlebih dahulu!
+          </p>
+        </ion-text>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-input
+            label="Username:"
+            labelPlacement="floating"
+            placeholder="Masukkan username anda"
+            type="text"
+            [(ngModel)]="username"
+          >
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input
+            label="Password:"
+            labelPlacement="floating"
+            placeholder="Masukkan password anda"
+            type="text"
+            [(ngModel)]="password"
+          >
+          </ion-input>
+        </ion-item>
+        <ion-text *ngIf="sudahCoba && !hasilCek" color="danger">
+          <p style="text-align: center">Username atau password salah!</p>
+        </ion-text>
+        <ion-item lines="none">
+          <ion-button (click)="cekLogin()" style="width: 100%; margin-top: 16px"
+            >Login</ion-button
+          >
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>

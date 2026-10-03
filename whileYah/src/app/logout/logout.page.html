@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>Keluar</ion-title>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
@@ -8,9 +8,36 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Keluar</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="container-tengah">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title style="text-align: center"
+          >Konfirmasi Keluar</ion-card-title
+        >
+      </ion-card-header>
+      <ion-card-content>
+        <ion-text>
+          <p style="text-align: center; margin-bottom: 24px">
+            Apakah Anda yakin ingin keluar dari aplikasi?
+          </p>
+        </ion-text>
+        <ion-button
+          expand="block"
+          color="danger"
+          (click)="logout()"
+          style="margin-bottom: 8px"
+        >
+          Ya, Keluar
+        </ion-button>
+        <ion-button
+          expand="block"
+          fill="outline"
+          color="primary"
+          (click)="batal()"
+        >
+          Batal
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>

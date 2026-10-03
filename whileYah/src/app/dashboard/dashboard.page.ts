@@ -23,12 +23,11 @@ export class DashboardPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.produk = this.dataProduk.produk;
-    this.transaksi = this.dataTransaksi.daftarTransaksi;
-
     this.isLogin = this.login.isLogin;
     if (!this.isLogin) {
       this.router.navigate(['/login']);
     }
+    this.produk = this.dataProduk.produk;
+    this.transaksi = this.dataTransaksi.daftarTransaksi;
   }
 }

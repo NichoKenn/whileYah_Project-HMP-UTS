@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AnimationController } from '@ionic/angular';
+import { Login } from '../login';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pengaturan',
@@ -9,9 +11,18 @@ import { AnimationController } from '@ionic/angular';
 })
 export class PengaturanPage implements OnInit {
   isDarkMode = false;
-  constructor(private animationCtrl: AnimationController) {}
+  isLogin = false;
+  constructor(
+    private animationCtrl: AnimationController,
+    private login: Login,
+    private router: Router,
+  ) {}
 
   ngOnInit() {
+    this.isLogin = this.login.isLogin;
+    if (!this.isLogin) {
+      this.router.navigate(['/login']);
+    }
     this.isDarkMode = document.body.classList.contains('dark');
   }
 

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DataKeranjang } from '../data-keranjang';
 import { DataTransaksi } from '../data-transaksi';
 import { DataProduk } from '../data-produk';
+import { Login } from '../login';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-keranjang',
@@ -12,9 +14,20 @@ import { DataProduk } from '../data-produk';
 export class KeranjangPage implements OnInit {
   isiKeranjang: any[] = [];
   totalBelanja: number = 0;
-  constructor(private keranjangService:DataKeranjang, private transaksiService:DataTransaksi,private dataProduk:DataProduk) { }
+  isLogin = false;
+  constructor(
+    private keranjangService: DataKeranjang,
+    private transaksiService: DataTransaksi,
+    private dataProduk: DataProduk,
+    private login: Login,
+    private router: Router,
+  ) {}
 
   ngOnInit() {
+    this.isLogin = this.login.isLogin;
+    if (!this.isLogin) {
+      this.router.navigate(['/login']);
+    }
     this.muatKeranjang();
   }
 
@@ -26,9 +39,9 @@ export class KeranjangPage implements OnInit {
     this.isiKeranjang = this.keranjangService.getKeranjang();
     this.totalBelanja = this.keranjangService.hitungTotal();
   }
-  hapus(index:number) {
+  hapus(index: number) {
     this.keranjangService.hapusItem(index);
-    this.totalBelanja=this.keranjangService.hitungTotal();
+    this.totalBelanja = this.keranjangService.hitungTotal();
   }
   checkout() {
     if (this.isiKeranjang.length === 0) {
@@ -36,27 +49,27 @@ export class KeranjangPage implements OnInit {
       return;
     }
     let riwayatSaatIni = this.transaksiService.getSemuaTransaksi();
-    let idBaru = 'TRX-' + (riwayatSaatIni.length + 1); 
-    let tanggalSekarang = new Date().toLocaleDateString('id-ID'); 
-    let semuaProduk=this.dataProduk.produk;
+    let idBaru = 'TRX-' + (riwayatSaatIni.length + 1);
+    let tanggalSekarang = new Date().toLocaleDateString('id-ID');
+    let semuaProduk = this.dataProduk.produk;
 
     for (let i = 0; i < this.isiKeranjang.length; i++) {
       let item = this.isiKeranjang[i];
       let totalHargaItem = item.harga_jual * item.jumlah;
 
       this.transaksiService.tambahTransaksi(
-        idBaru, 
-        tanggalSekarang, 
-        item.nama, 
-        item.jumlah, 
-        totalHargaItem
+        idBaru,
+        tanggalSekarang,
+        item.nama,
+        item.jumlah,
+        totalHargaItem,
       );
-      let produkAsli = semuaProduk.find(p => p.nama === item.nama);
+      let produkAsli = semuaProduk.find((p) => p.nama === item.nama);
       if (produkAsli) {
-        produkAsli.stok -= item.jumlah; 
+        produkAsli.stok -= item.jumlah;
       }
     }
-    
+
     this.keranjangService.kosongkanKeranjang();
     this.isiKeranjang = [];
     this.totalBelanja = 0;

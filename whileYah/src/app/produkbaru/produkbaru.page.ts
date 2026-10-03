@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataProduk } from '../data-produk';
 import { Router } from '@angular/router';
+import { Login } from '../login';
 
 @Component({
   selector: 'app-produkbaru',
@@ -21,17 +22,24 @@ export class ProdukbaruPage implements OnInit {
     'camilan',
     'obat',
     'minuman',
-    'kebersihan'
+    'kebersihan',
   ];
 
   isSubmitted: boolean = false;
+  isLogin = false;
 
   constructor(
     private dataProduk: DataProduk,
-    private router: Router
+    private router: Router,
+    private login: Login,
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.isLogin = this.login.isLogin;
+    if (!this.isLogin) {
+      this.router.navigate(['/login']);
+    }
+  }
 
   cekValidasi(): boolean {
     return (
@@ -70,7 +78,7 @@ export class ProdukbaruPage implements OnInit {
         this.stok,
         this.harga_beli,
         this.harga_jual,
-        this.kategori
+        this.kategori,
       );
 
       if (berhasil) {
