@@ -4,64 +4,83 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
-    pathMatch: 'full'
+    redirectTo: 'login',
+    pathMatch: 'full',
   },
   {
     path: 'dashboard',
-    loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule)
+    loadChildren: () =>
+      import('./dashboard/dashboard.module').then((m) => m.DashboardPageModule),
   },
   {
     path: 'produk',
-    loadChildren: () => import('./produk/produk.module').then( m => m.ProdukPageModule) 
+    loadChildren: () =>
+      import('./produk/produk.module').then((m) => m.ProdukPageModule),
   },
   {
     path: 'produkdetail/:id',
-    loadChildren: () => import('./produkdetail/produkdetail.module').then( m => m.ProdukdetailPageModule)
+    loadChildren: () =>
+      import('./produkdetail/produkdetail.module').then(
+        (m) => m.ProdukdetailPageModule,
+      ),
   },
   {
     path: 'produkbaru',
-    loadChildren: () => import('./produkbaru/produkbaru.module').then( m => m.ProdukbaruPageModule)
+    loadChildren: () =>
+      import('./produkbaru/produkbaru.module').then(
+        (m) => m.ProdukbaruPageModule,
+      ),
   },
   {
     path: 'transaksi',
-    loadChildren: () => import('./transaksi/transaksi.module').then( m => m.TransaksiPageModule)
+    loadChildren: () =>
+      import('./transaksi/transaksi.module').then((m) => m.TransaksiPageModule),
   },
   {
     path: 'profile',
-    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+    loadChildren: () =>
+      import('./profile/profile.module').then((m) => m.ProfilePageModule),
   },
   {
     path: 'pengaturan',
-    loadChildren: () => import('./pengaturan/pengaturan.module').then( m => m.PengaturanPageModule)
+    loadChildren: () =>
+      import('./pengaturan/pengaturan.module').then(
+        (m) => m.PengaturanPageModule,
+      ),
   },
   {
     path: 'about',
-    loadChildren: () => import('./about/about.module').then( m => m.AboutPageModule)
+    loadChildren: () =>
+      import('./about/about.module').then((m) => m.AboutPageModule),
   },
   {
     path: 'logout',
-    loadChildren: () => import('./logout/logout.module').then( m => m.LogoutPageModule)
+    loadChildren: () =>
+      import('./logout/logout.module').then((m) => m.LogoutPageModule),
   },
   {
     path: 'keranjang',
-    loadChildren: () => import('./keranjang/keranjang.module').then( m => m.KeranjangPageModule)
+    loadChildren: () =>
+      import('./keranjang/keranjang.module').then((m) => m.KeranjangPageModule),
   },
   {
     path: 'editproduk/:id',
-    loadChildren: () => import('./editproduk/editproduk.module').then( m => m.EditprodukPageModule)
-  },  {
+    loadChildren: () =>
+      import('./editproduk/editproduk.module').then(
+        (m) => m.EditprodukPageModule,
+      ),
+  },
+  {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
-  }
-
-
+    loadChildren: () =>
+      import('./login/login.module').then((m) => m.LoginPageModule),
+  },
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
