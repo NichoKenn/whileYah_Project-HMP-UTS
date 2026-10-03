@@ -50,7 +50,11 @@ const routes: Routes = [
   {
     path: 'editproduk/:id',
     loadChildren: () => import('./editproduk/editproduk.module').then( m => m.EditprodukPageModule)
+  },  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   }
+
 
 ];
 
