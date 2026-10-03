@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataProduk } from '../data-produk';
 import { DataKeranjang } from '../data-keranjang';
+import { AnimationController } from '@ionic/angular';
 
 @Component({
   selector: 'app-produk',
@@ -10,11 +11,12 @@ import { DataKeranjang } from '../data-keranjang';
 })
 export class ProdukPage implements OnInit {
   produk: any[] = [];
-  searchTerm:string="";
+  searchTerm: string = '';
 
   constructor(
     private dataProduk: DataProduk,
-    private dataKeranjang: DataKeranjang
+    private dataKeranjang: DataKeranjang,
+    private animationCtrl: AnimationController,
   ) {}
 
   ngOnInit() {
@@ -26,18 +28,18 @@ export class ProdukPage implements OnInit {
   }
 
   inisialisasiProduk() {
-  this.produk = []; 
-  for(let i in this.dataProduk.produk) {
-    let itemAsli = this.dataProduk.produk[i];
-    this.produk.push({
-      nama: itemAsli.nama,
-      harga_jual: itemAsli.harga_jual,
-      stok: itemAsli.stok,
-      url: itemAsli.url,
-      jumlah: 1 
-    });
+    this.produk = [];
+    for (let i in this.dataProduk.produk) {
+      let itemAsli = this.dataProduk.produk[i];
+      this.produk.push({
+        nama: itemAsli.nama,
+        harga_jual: itemAsli.harga_jual,
+        stok: itemAsli.stok,
+        url: itemAsli.url,
+        jumlah: 1,
+      });
+    }
   }
-}
 
   chunkArray(arr: any[], chunkSize: number): any[][] {
     const result = [];
@@ -47,11 +49,11 @@ export class ProdukPage implements OnInit {
     return result;
   }
   filterProduk() {
-    if(!this.searchTerm) {
+    if (!this.searchTerm) {
       return this.produk;
     }
-    return this.produk.filter(item => 
-      item.nama.toLowerCase().includes(this.searchTerm.toLowerCase())
+    return this.produk.filter((item) =>
+      item.nama.toLowerCase().includes(this.searchTerm.toLowerCase()),
     );
   }
   getOriginalIndex(item: any): number {
@@ -72,12 +74,50 @@ export class ProdukPage implements OnInit {
 
   tambahKeKeranjang(item: any) {
     if (item.stok >= item.jumlah) {
-      this.dataKeranjang.tambahItem(item.nama, Number(item.harga_jual), item.jumlah);
+      this.dataKeranjang.tambahItem(
+        item.nama,
+        Number(item.harga_jual),
+        item.jumlah,
+      );
       alert(`${item.jumlah} ${item.nama} berhasil ditambahkan ke keranjang!`);
-      item.jumlah = 1;     }
+      item.jumlah = 1;
+    }
   }
 
   trackByIndex(index: number, item: any) {
     return index;
+  }
+
+  // Animasi saat mouse menyorot tombol (Membesar)
+  hoverMasuk(event: any) {
+    const tombol = event.target;
+
+    const animation = this.animationCtrl
+      .create()
+      .addElement(tombol)
+      .duration(200) // 0.2 detik
+      .easing('ease-out')
+      .keyframes([
+        { offset: 0, transform: 'scale(1)' },
+        { offset: 1, transform: 'scale(1.15)' },
+      ]);
+    animation.fill('forwards').play();
+  }
+
+  // Animasi saat mouse pergi dari tombol (Kembali normal)
+  hoverKeluar(event: any) {
+    const tombol = event.target;
+
+    const animation = this.animationCtrl
+      .create()
+      .addElement(tombol)
+      .duration(200)
+      .easing('ease-in')
+      .keyframes([
+        { offset: 0, transform: 'scale(1.15)' },
+        { offset: 1, transform: 'scale(1)' },
+      ]);
+
+    animation.fill('forwards').play();
   }
 }
