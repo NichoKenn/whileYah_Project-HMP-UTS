@@ -10,7 +10,7 @@
 <ion-content [fullscreen]="true">
 
   <ion-accordion-group expand="inset">
-    <ion-accordion *ngFor="let trx of isiTransaksi" [value]="trx.idTransaksi">
+    <ion-accordion *ngFor="let trx of isiTransaksi" [value]="trx.id">
       <ion-item slot="header" color="primary">
         <ion-label style="text-align: center;">
           ID {{ trx.id }} - {{ trx.tanggal }}
