@@ -13,4 +13,25 @@
       <ion-title size="large">Beranda</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-card>
+    <ion-card-header>
+      <h2>Produk</h2>
+    </ion-card-header>
+    <ion-card-content>
+      Toko memiliki total {{ jumlahProduk() }} produk</ion-card-content
+    >
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <h2>Transaksi</h2>
+    </ion-card-header>
+    <ion-card-content>
+      <p>
+        Total Transaksi hari ini sebesar
+        <ion-text color="primary"> Rp.{{ totalTransaksi() }} </ion-text>
+      </p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
