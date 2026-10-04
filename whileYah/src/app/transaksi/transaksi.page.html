@@ -9,27 +9,34 @@
 
 <ion-content [fullscreen]="true">
 
-  <ion-list *ngIf="isiTransaksi.length > 0">
-    <ion-card *ngFor="let item of isiTransaksi; let i = index">
-      <ion-card-header color="primary">
-        <ion-label style="text-align: center;">{{item.id}}</ion-label>
-      </ion-card-header>
-      <ion-card-content>
+  <ion-accordion-group expand="inset">
+    <ion-accordion *ngFor="let trx of isiTransaksi" [value]="trx.idTransaksi">
+      <ion-item slot="header" color="primary">
+        <ion-label style="text-align: center;">
+          ID {{ trx.id }} - {{ trx.tanggal }}
+        </ion-label>
+      </ion-item>
+
+      <div class="ion-padding" slot="content">
+        <ion-list>
+          <ion-item *ngFor="let item of trx.items">
+            <ion-label>
+              <h2><b>{{ item.nama }}</b></h2>
+              <p>Jumlah: {{ item.jumlahJual }} x Rp.{{item.harga_jual}}</p>
+            </ion-label>
+            <ion-note slot="end" color="secondary" style="font-size: 13px;">
+              Subtotal: Rp.{{ item.subtotal }}
+            </ion-note>
+          </ion-item>
+        </ion-list>
         <ion-item>
           <ion-label>
-            <h2><b>{{ item.namaProduk }}</b></h2>
-            <p>Jumlah: {{ item.jumlah }}</p>
+            Total belanja: Rp.{{ trx.totalPendapatan }}
           </ion-label>
-          <ion-note slot="end" color="secondary">
-            Tanggal: {{ item.tanggal }}
-          </ion-note>
         </ion-item>
-        <ion-item>
-          <ion-label>Total belanja: Rp.{{ item.totalHarga }}</ion-label>
-        </ion-item>
-      </ion-card-content>
-    </ion-card>
-  </ion-list>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
 
   <ion-header collapse="condense">
     <ion-toolbar>

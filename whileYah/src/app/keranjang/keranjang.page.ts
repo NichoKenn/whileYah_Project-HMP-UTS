@@ -4,6 +4,7 @@ import { DataTransaksi } from '../data-transaksi';
 import { DataProduk } from '../data-produk';
 import { Login } from '../login';
 import { Router } from '@angular/router';
+import { itemTransaksi } from '../data-transaksi';
 
 @Component({
   selector: 'app-keranjang',
@@ -13,6 +14,7 @@ import { Router } from '@angular/router';
 })
 export class KeranjangPage implements OnInit {
   isiKeranjang: any[] = [];
+  itemTransaksi: itemTransaksi[] = [];
   totalBelanja: number = 0;
   isLogin = false;
   constructor(
@@ -21,7 +23,7 @@ export class KeranjangPage implements OnInit {
     private dataProduk: DataProduk,
     private login: Login,
     private router: Router,
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.isLogin = this.login.isLogin;
@@ -57,18 +59,22 @@ export class KeranjangPage implements OnInit {
       let item = this.isiKeranjang[i];
       let totalHargaItem = item.harga_jual * item.jumlah;
 
-      this.transaksiService.tambahTransaksi(
-        idBaru,
-        tanggalSekarang,
-        item.nama,
-        item.jumlah,
-        totalHargaItem,
-      );
+      this.itemTransaksi.push({
+        idProduk: item.id,
+        jumlah: item.jumlah
+      });
+
       let produkAsli = semuaProduk.find((p) => p.nama === item.nama);
       if (produkAsli) {
         produkAsli.stok -= item.jumlah;
       }
     }
+    this.transaksiService.tambahTransaksi(
+      idBaru,
+      tanggalSekarang,
+      this.itemTransaksi
+    );
+    this.itemTransaksi = [];
 
     this.keranjangService.kosongkanKeranjang();
     this.isiKeranjang = [];
