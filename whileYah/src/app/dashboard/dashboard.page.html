@@ -7,31 +7,146 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="ion-padding">
   <ion-header collapse="condense">
-    <ion-toolbar>
+    <ion-toolbar color="light">
       <ion-title size="large">Beranda</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <ion-card>
-    <ion-card-header>
-      <h2>Produk</h2>
-    </ion-card-header>
-    <ion-card-content>
-      Toko memiliki total {{ jumlahProduk() }} produk</ion-card-content
-    >
-  </ion-card>
+  <div class="ion-padding-vertical">
+    <h1 style="font-weight: 800; margin-bottom: 5px">Selamat Datang!</h1>
+    <p style="color: var(--ion-color-medium); margin-top: 0; font-size: 15px">
+      Berikut adalah ringkasan toko kamu hari ini.
+    </p>
+  </div>
 
-  <ion-card>
-    <ion-card-header>
-      <h2>Transaksi</h2>
-    </ion-card-header>
-    <ion-card-content>
-      <p>
-        Total Transaksi hari ini sebesar
-        <ion-text color="primary"> Rp.{{ totalTransaksi() }} </ion-text>
-      </p>
-    </ion-card-content>
-  </ion-card>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card
+          color="primary"
+          style="margin: 0; height: 100%; border-radius: 16px"
+        >
+          <ion-card-content style="padding: 15px">
+            <div style="text-align: center">
+              <ion-icon
+                name="cube"
+                style="font-size: 38px; margin-bottom: 10px; color: white"
+              ></ion-icon>
+              <h2 style="font-weight: 800; font-size: 26px">
+                {{ jumlahProduk() }}
+              </h2>
+              <p style="margin: 5px 0 0 0; font-size: 13px">Total Produk</p>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col>
+        <ion-card
+          color="secondary"
+          style="margin: 0; height: 100%; border-radius: 16px"
+        >
+          <ion-card-content style="padding: 15px">
+            <div style="text-align: center">
+              <ion-icon
+                name="star"
+                style="font-size: 38px; margin-bottom: 10px; color: white"
+              ></ion-icon>
+              <h2 style="font-weight: 800; font-size: 18px; color: white">
+                {{ produkTerlaris() }}
+              </h2>
+              <p style="margin: 5px 0 0 0; font-size: 13px">Produk Terlaris</p>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <h2
+    style="
+      font-weight: 800;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      font-size: 20px;
+    "
+  >
+    Keuangan Hari Ini
+  </h2>
+
+  <ion-list style="border-radius: 8px">
+    <ion-item>
+      <div
+        slot="start"
+        style="padding: 12px; border-radius: 12px; margin-right: 15px"
+      >
+        <ion-icon
+          name="wallet"
+          color="primary"
+          style="font-size: 24px"
+        ></ion-icon>
+      </div>
+      <ion-label>
+        <h2 style="font-weight: 700; font-size: 16px">Pendapatan</h2>
+        <p style="font-size: 13px">Total transaksi penjualan hari ini</p>
+      </ion-label>
+      <ion-text
+        slot="end"
+        color="primary"
+        style="font-weight: 800; font-size: 16px"
+      >
+        Rp. {{ totalTransaksi() }}
+      </ion-text>
+    </ion-item>
+
+    <ion-item>
+      <div
+        slot="start"
+        style="padding: 12px; border-radius: 12px; margin-right: 15px"
+      >
+        <ion-icon
+          name="cart"
+          color="secondary"
+          style="font-size: 24px"
+        ></ion-icon>
+      </div>
+      <ion-label>
+        <h2 style="font-weight: 700; font-size: 16px">Modal Keluar</h2>
+        <p style="font-size: 13px">Total harga beli barang</p>
+      </ion-label>
+      <ion-text
+        slot="end"
+        color="secondary"
+        style="font-weight: 800; font-size: 16px"
+      >
+        Rp. {{ totalModal() }}
+      </ion-text>
+    </ion-item>
+
+    <ion-item lines="none" detail="false">
+      <div
+        slot="start"
+        style="padding: 12px; border-radius: 12px; margin-right: 15px"
+      >
+        <ion-icon
+          name="trending-up"
+          color="primary"
+          style="font-size: 24px"
+        ></ion-icon>
+      </div>
+      <ion-label>
+        <h2 style="font-weight: 700; font-size: 16px">Keuntungan</h2>
+        <p style="font-size: 13px">Laba bersih hari ini</p>
+      </ion-label>
+      <ion-text
+        slot="end"
+        color="primary"
+        style="font-weight: 800; font-size: 16px"
+      >
+        Rp. {{ totalUntung() }}
+      </ion-text>
+    </ion-item>
+  </ion-list>
 </ion-content>
