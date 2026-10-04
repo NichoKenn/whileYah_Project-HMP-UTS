@@ -23,7 +23,7 @@ export class KeranjangPage implements OnInit {
     private dataProduk: DataProduk,
     private login: Login,
     private router: Router,
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.isLogin = this.login.isLogin;
@@ -52,7 +52,13 @@ export class KeranjangPage implements OnInit {
     }
     let riwayatSaatIni = this.transaksiService.getSemuaTransaksi();
     let idBaru = 'TRX-' + (riwayatSaatIni.length + 1);
-    let tanggalSekarang = new Date().toLocaleDateString('id-ID');
+    let now = new Date();
+    let tanggalSekarang =
+      now.getFullYear() +
+      '-' +
+      String(now.getMonth() + 1).padStart(2, '0') +
+      '-' +
+      String(now.getDate()).padStart(2, '0');
     let semuaProduk = this.dataProduk.produk;
 
     for (let i = 0; i < this.isiKeranjang.length; i++) {
@@ -61,7 +67,7 @@ export class KeranjangPage implements OnInit {
 
       this.itemTransaksi.push({
         idProduk: item.id,
-        jumlah: item.jumlah
+        jumlah: item.jumlah,
       });
 
       let produkAsli = semuaProduk.find((p) => p.nama === item.nama);
@@ -72,7 +78,7 @@ export class KeranjangPage implements OnInit {
     this.transaksiService.tambahTransaksi(
       idBaru,
       tanggalSekarang,
-      this.itemTransaksi
+      this.itemTransaksi,
     );
     this.itemTransaksi = [];
 

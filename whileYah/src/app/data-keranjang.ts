@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 export interface ProdukItem {
+  id: string;
   nama: string;
   harga_jual: number;
   jumlah: number;
@@ -16,7 +17,12 @@ export class DataKeranjang {
     return this.keranjangItems;
   }
 
-  tambahItem(p_nama: string, p_harga_jual: number, p_jumlah: number) {
+  tambahItem(
+    p_id: string,
+    p_nama: string,
+    p_harga_jual: number,
+    p_jumlah: number,
+  ) {
     let sudahAda = false;
     for (let i = 0; i < this.keranjangItems.length; i++) {
       if (this.keranjangItems[i].nama === p_nama) {
@@ -28,14 +34,15 @@ export class DataKeranjang {
 
     if (!sudahAda) {
       this.keranjangItems.push({
+        id: p_id,
         nama: p_nama,
         harga_jual: p_harga_jual,
-        jumlah: p_jumlah
+        jumlah: p_jumlah,
       });
     }
   }
 
-  hapusItem(index: number) {  
+  hapusItem(index: number) {
     if (index >= 0 && index < this.keranjangItems.length) {
       this.keranjangItems.splice(index, 1);
     }
@@ -44,7 +51,8 @@ export class DataKeranjang {
   hitungTotal(): number {
     let total = 0;
     for (let i = 0; i < this.keranjangItems.length; i++) {
-      total += this.keranjangItems[i].harga_jual * this.keranjangItems[i].jumlah;
+      total +=
+        this.keranjangItems[i].harga_jual * this.keranjangItems[i].jumlah;
     }
     return total;
   }

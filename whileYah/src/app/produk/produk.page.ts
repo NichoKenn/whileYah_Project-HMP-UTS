@@ -41,6 +41,7 @@ export class ProdukPage implements OnInit {
     for (let i in this.dataProduk.produk) {
       let itemAsli = this.dataProduk.produk[i];
       this.produk.push({
+        id: itemAsli.id,
         nama: itemAsli.nama,
         harga_jual: itemAsli.harga_jual,
         stok: itemAsli.stok,
@@ -85,6 +86,7 @@ export class ProdukPage implements OnInit {
   tambahKeKeranjang(item: any) {
     if (item.stok >= item.jumlah) {
       this.dataKeranjang.tambahItem(
+        item.id,
         item.nama,
         Number(item.harga_jual),
         item.jumlah,
