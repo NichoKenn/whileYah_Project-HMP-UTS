@@ -44,8 +44,10 @@
           >
           </ion-input>
         </ion-item>
-        <ion-text *ngIf="sudahCoba && !hasilCek" color="danger">
-          <p style="text-align: center">Username atau password salah!</p>
+        <ion-text *ngIf="sudahCoba && !hasilCek">
+          <p style="text-align: center; color: red">
+            Username atau password salah!
+          </p>
         </ion-text>
         <ion-item lines="none">
           <ion-button (click)="cekLogin()" style="width: 100%; margin-top: 16px"

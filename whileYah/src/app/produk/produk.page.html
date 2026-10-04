@@ -20,9 +20,7 @@
   ></ion-searchbar>
 
   <ion-grid>
-    <ion-row
-      *ngFor="let produk2 of chunkArray(filterProduk(), 2)"
-    >
+    <ion-row *ngFor="let produk2 of chunkArray(filterProduk(), 2)">
       <ion-col *ngFor="let data of produk2">
         <ion-card
           style="
@@ -47,9 +45,15 @@
               "
             ></ion-img>
             <ion-card-header style="padding-bottom: 5px">
-              <ion-card-title style="font-size: 16px; line-height: 1.2"
-                >{{data.nama}}</ion-card-title
-              >
+              <ion-item lines="none">
+                <ion-card-title style="font-size: 16px; line-height: 1.2"
+                  >{{data.nama}}</ion-card-title
+                >
+                <ion-badge slot="end" color="secondary"
+                  >{{data.kategori}}</ion-badge
+                >
+              </ion-item>
+
               <ion-card-subtitle
                 [ngStyle]="{'color': data.stok <= 5 ? 'var(--ion-color-danger)' : 'var(--ion-color-medium)'}"
               >

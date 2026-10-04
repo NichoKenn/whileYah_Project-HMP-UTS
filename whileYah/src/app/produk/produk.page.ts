@@ -45,6 +45,7 @@ export class ProdukPage implements OnInit {
         harga_jual: itemAsli.harga_jual,
         stok: itemAsli.stok,
         url: itemAsli.url,
+        kategori: itemAsli.kategori,
         jumlah: 1,
       });
     }
