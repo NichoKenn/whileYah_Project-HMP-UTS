@@ -20,6 +20,13 @@ export class LoginPage implements OnInit {
     }
   }
 
+  ionViewWillEnter() {
+    this.username = '';
+    this.password = '';
+    this.sudahCoba = false;
+    this.hasilCek = false;
+  }
+
   sudahCoba = false;
   hasilCek = false;
   username = '';
