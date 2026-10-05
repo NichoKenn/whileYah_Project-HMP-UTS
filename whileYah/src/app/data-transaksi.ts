@@ -22,7 +22,7 @@ export class DataTransaksi {
     daftarTransaksi = [
         {
             id: 'TRX-001',
-            tanggal: '2026-09-01',
+            tanggal: '2026-10-01',
             items: [
                 { idProduk: 'P001', jumlah: 2 },
                 { idProduk: 'P003', jumlah: 1 },
@@ -32,7 +32,7 @@ export class DataTransaksi {
 
         {
             id: 'TRX-002',
-            tanggal: '2026-09-05',
+            tanggal: '2026-10-02',
             items: [
                 { idProduk: 'P014', jumlah: 2 },
                 { idProduk: 'P004', jumlah: 1 }
@@ -41,7 +41,7 @@ export class DataTransaksi {
 
         {
             id: 'TRX-003',
-            tanggal: '2026-09-10',
+            tanggal: '2026-10-02',
             items: [
                 { idProduk: 'P002', jumlah: 1 },
                 { idProduk: 'P011', jumlah: 2 },
@@ -51,7 +51,7 @@ export class DataTransaksi {
 
         {
             id: 'TRX-004',
-            tanggal: '2026-09-15',
+            tanggal: '2026-10-03',
             items: [
                 { idProduk: 'P006', jumlah: 2 },
                 { idProduk: 'P004', jumlah: 2 }
@@ -60,7 +60,7 @@ export class DataTransaksi {
 
         {
             id: 'TRX-005',
-            tanggal: '2026-09-20',
+            tanggal: '2026-10-03',
             items: [
                 { idProduk: 'P010', jumlah: 5 },
                 { idProduk: 'P007', jumlah: 1 }
@@ -69,7 +69,7 @@ export class DataTransaksi {
 
         {
             id: 'TRX-006',
-            tanggal: '2026-09-22',
+            tanggal: '2026-10-04',
             items: [
                 { idProduk: 'P015', jumlah: 1 },
                 { idProduk: 'P014', jumlah: 2 },
@@ -79,7 +79,7 @@ export class DataTransaksi {
 
         {
             id: 'TRX-007',
-            tanggal: '2026-09-25',
+            tanggal: '2026-10-05',
             items: [
                 { idProduk: 'P001', jumlah: 3 },
                 { idProduk: 'P003', jumlah: 2 },
@@ -89,7 +89,7 @@ export class DataTransaksi {
 
         {
             id: 'TRX-008',
-            tanggal: '2026-09-27',
+            tanggal: '2026-10-05',
             items: [
                 { idProduk: 'P008', jumlah: 2 },
                 { idProduk: 'P007', jumlah: 1 },
@@ -99,7 +99,7 @@ export class DataTransaksi {
 
         {
             id: 'TRX-009',
-            tanggal: '2026-09-29',
+            tanggal: '2026-10-06',
             items: [
                 { idProduk: 'P012', jumlah: 2 },
                 { idProduk: 'P011', jumlah: 3 },
@@ -109,7 +109,7 @@ export class DataTransaksi {
 
         {
             id: 'TRX-010',
-            tanggal: '2026-09-30',
+            tanggal: '2026-10-07',
             items: [
                 { idProduk: 'P005', jumlah: 1 },
                 { idProduk: 'P006', jumlah: 1 },
