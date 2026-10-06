@@ -7,7 +7,7 @@ export class DataProduk {
 
     produk = [
         {
-            id: "P001",
+            id: "P1",
             nama: "BERAS SUMO",
             url: "https://image.astronauts.cloud/product-images/2026/7/SumoMerahBerasFortif_351ab95e-5b60-46d4-9745-1b57cc434b3e_900x900.jpg",
             stok: 15,
@@ -16,7 +16,7 @@ export class DataProduk {
             kategori: "Sembako"
         },
         {
-            id: "P002",
+            id: "P2",
             nama: "MINYAK BIMOLI",
             url: "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/MTA-0883838/bimoli_bimoli-klasik-pouch-minyak-goreng--2000-ml-6-pcs-_full06.jpg",
             stok: 0,
@@ -25,7 +25,7 @@ export class DataProduk {
             kategori: "Sembako"
         },
         {
-            id: "P003",
+            id: "P3",
             nama: "GULA GULAKU",
             url: "https://media.monotaro.id/mid01/big/Perlengkapan%20Dapur%20%26%20Horeka/Makanan/Gula/Gula%20Pasir/Gulaku%20Gula%20Pasir%20Kuning%20(Sugar)/Gulaku%20Gula%20Pasir%20Kuning%20(Sugar)%201kg%201pc/1yS000003070-8.jpg",
             stok: 20,
@@ -34,7 +34,7 @@ export class DataProduk {
             kategori: "Sembako"
         },
         {
-            id: "P004",
+            id: "P4",
             nama: "WAFER TANGO",
             url: "https://coreimages.lottemart.co.id/ord/06/8c3c1434-da7f-4006-8d1f-fe4a7d6010b3.jpeg",
             stok: 25,
@@ -43,7 +43,7 @@ export class DataProduk {
             kategori: "Camilan"
         },
         {
-            id: "P005",
+            id: "P5",
             nama: "BISKUIT KHONG GUAN",
             url: "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//690/khong-guan_khong-guan-biscuit--1600-g-_full02.jpg",
             stok: 5,
@@ -52,7 +52,7 @@ export class DataProduk {
             kategori: "Camilan"
         },
         {
-            id: "P006",
+            id: "P6",
             nama: "KACANG GARUDA",
             url: "https://image.astronauts.cloud/product-images/2026/7/ArchivoBlack19818cd_becd126d-ffe6-4841-be59-cc10597fb34d_900x900.jpg",
             stok: 0,
@@ -61,7 +61,7 @@ export class DataProduk {
             kategori: "Camilan"
         },
         {
-            id: "P007",
+            id: "P7",
             nama: "BODREX",
             url: "https://lifepack.id/images/uploads/2021/02/rug-1614236088278-3.jpeg.0x0.jpg.webp",
             stok: 18,
@@ -70,7 +70,7 @@ export class DataProduk {
             kategori: "Obat"
         },
         {
-            id: "P008",
+            id: "P8",
             nama: "PANADOL",
             url: "https://d3bbrrd0qs69m4.cloudfront.net/images/product/large/apotek_online_k24klik_20260629030540359225_Panadol-Biru.jpg",
             stok: 20,
@@ -79,7 +79,7 @@ export class DataProduk {
             kategori: "Obat"
         },
         {
-            id: "P009",
+            id: "P9",
             nama: "OSKADON",
             url: "https://p16-oec-sg.ibyteimg.com/tos-alisg-i-aphluv4xwc-sg/img/VqbcmM/2024/8/12/126c7491-007c-4662-90dc-da985df8665f.jpg~tplv-aphluv4xwc-resize-jpeg:700:0.jpg",
             stok: 23,
@@ -88,7 +88,7 @@ export class DataProduk {
             kategori: "Obat"
         },
         {
-            id: "P010",
+            id: "P10",
             nama: "LE MINERALE",
             url: "https://order.lottemart.co.id/_next/image?url=https%3A%2F%2Fcoreimages.lottemart.co.id%2Ford%2F06%2F1088855000-a&w=1920&q=75",
             stok: 25,
@@ -97,7 +97,7 @@ export class DataProduk {
             kategori: "Minuman"
         },
         {
-            id: "P011",
+            id: "P11",
             nama: "SPRITE",
             url: "https://minumjek.com/cdn/shop/files/Minumjek_Sprite_Can_250ml-bottle.png?v=1778292871",
             stok: 10,
@@ -106,7 +106,7 @@ export class DataProduk {
             kategori: "Minuman"
         },
         {
-            id: "P012",
+            id: "P12",
             nama: "KRATINGDAENG",
             url: "https://coreimages.lottemart.co.id/ord/06/1083902000-a",
             stok: 0,
@@ -115,7 +115,7 @@ export class DataProduk {
             kategori: "Minuman"
         },
         {
-            id: "P013",
+            id: "P13",
             nama: "SABUN EKONOMI",
             url: "",
             stok: 20,
@@ -124,7 +124,7 @@ export class DataProduk {
             kategori: "Kebersihan"
         },
         {
-            id: "P014",
+            id: "P14",
             nama: "SABUN LIFEBUOY",
             url: "https://www.mandjur.co.id/cdn/shop/files/Lifebuoy-Total-10-500-mL-New-Pack.webp?v=1784532831",
             stok: 15,
@@ -133,7 +133,7 @@ export class DataProduk {
             kategori: "Kebersihan"
         },
         {
-            id: "P015",
+            id: "P15",
             nama: "SHAMPOO PANTENE",
             url: "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/catalog-image/101/MTA-157416833/pantene_pantene-shp-halus-lembut-pump-400-ml_full01.jpg",
             stok: 5,

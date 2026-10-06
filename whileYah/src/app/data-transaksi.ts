@@ -20,100 +20,100 @@ export class DataTransaksi {
 
     daftarTransaksi = [
         {
-            id: 'TRX-001',
+            id: 'TRX-1',
             tanggal: '2026-10-01',
             items: [
-                { idProduk: 'P001', jumlah: 2 },
-                { idProduk: 'P003', jumlah: 1 },
-                { idProduk: 'P010', jumlah: 3 }
+                { idProduk: 'P1', jumlah: 2 },
+                { idProduk: 'P3', jumlah: 1 },
+                { idProduk: 'P10', jumlah: 3 }
             ]
         },
 
         {
-            id: 'TRX-002',
+            id: 'TRX-2',
             tanggal: '2026-10-02',
             items: [
-                { idProduk: 'P014', jumlah: 2 },
-                { idProduk: 'P004', jumlah: 1 }
+                { idProduk: 'P14', jumlah: 2 },
+                { idProduk: 'P4', jumlah: 1 }
             ]
         },
 
         {
-            id: 'TRX-003',
+            id: 'TRX-3',
             tanggal: '2026-10-02',
             items: [
-                { idProduk: 'P002', jumlah: 1 },
-                { idProduk: 'P011', jumlah: 2 },
-                { idProduk: 'P005', jumlah: 1 }
+                { idProduk: 'P2', jumlah: 1 },
+                { idProduk: 'P11', jumlah: 2 },
+                { idProduk: 'P5', jumlah: 1 }
             ]
         },
 
         {
-            id: 'TRX-004',
+            id: 'TRX-4',
             tanggal: '2026-10-03',
             items: [
-                { idProduk: 'P006', jumlah: 2 },
-                { idProduk: 'P004', jumlah: 2 }
+                { idProduk: 'P6', jumlah: 2 },
+                { idProduk: 'P4', jumlah: 2 }
             ]
         },
 
         {
-            id: 'TRX-005',
+            id: 'TRX-5',
             tanggal: '2026-10-03',
             items: [
-                { idProduk: 'P010', jumlah: 5 },
-                { idProduk: 'P007', jumlah: 1 }
+                { idProduk: 'P10', jumlah: 5 },
+                { idProduk: 'P7', jumlah: 1 }
             ]
         },
 
         {
-            id: 'TRX-006',
+            id: 'TRX-6',
             tanggal: '2026-10-04',
             items: [
-                { idProduk: 'P015', jumlah: 1 },
-                { idProduk: 'P014', jumlah: 2 },
-                { idProduk: 'P013', jumlah: 1 }
+                { idProduk: 'P15', jumlah: 1 },
+                { idProduk: 'P14', jumlah: 2 },
+                { idProduk: 'P13', jumlah: 1 }
             ]
         },
 
         {
-            id: 'TRX-007',
+            id: 'TRX-7',
             tanggal: '2026-10-05',
             items: [
-                { idProduk: 'P001', jumlah: 3 },
-                { idProduk: 'P003', jumlah: 2 },
-                { idProduk: 'P002', jumlah: 1 }
+                { idProduk: 'P1', jumlah: 3 },
+                { idProduk: 'P3', jumlah: 2 },
+                { idProduk: 'P2', jumlah: 1 }
             ]
         },
 
         {
-            id: 'TRX-008',
-            tanggal: '2026-10-05',
-            items: [
-                { idProduk: 'P008', jumlah: 2 },
-                { idProduk: 'P007', jumlah: 1 },
-                { idProduk: 'P009', jumlah: 2 }
-            ]
-        },
-
-        {
-            id: 'TRX-009',
+            id: 'TRX-8',
             tanggal: '2026-10-06',
             items: [
-                { idProduk: 'P012', jumlah: 2 },
-                { idProduk: 'P011', jumlah: 3 },
-                { idProduk: 'P010', jumlah: 2 }
+                { idProduk: 'P8', jumlah: 2 },
+                { idProduk: 'P7', jumlah: 1 },
+                { idProduk: 'P9', jumlah: 2 }
             ]
         },
 
         {
-            id: 'TRX-010',
+            id: 'TRX-9',
             tanggal: '2026-10-07',
             items: [
-                { idProduk: 'P005', jumlah: 1 },
-                { idProduk: 'P006', jumlah: 1 },
-                { idProduk: 'P004', jumlah: 2 },
-                { idProduk: 'P008', jumlah: 1 }
+                { idProduk: 'P12', jumlah: 2 },
+                { idProduk: 'P11', jumlah: 3 },
+                { idProduk: 'P10', jumlah: 2 }
+            ]
+        },
+
+        {
+            id: 'TRX-10',
+            tanggal: '2026-10-08',
+            items: [
+                { idProduk: 'P5', jumlah: 1 },
+                { idProduk: 'P6', jumlah: 1 },
+                { idProduk: 'P4', jumlah: 2 },
+                { idProduk: 'P8', jumlah: 1 }
             ]
         }
     ];
@@ -237,7 +237,7 @@ export class DataTransaksi {
         return '-';
     }
 
-    displayAllTransaksi(): any[] {
+    displayAllTransaksi() {
         let hasil: any[] = [];
         for (let trans of this.daftarTransaksi) {
             let detailItems: any[] = [];

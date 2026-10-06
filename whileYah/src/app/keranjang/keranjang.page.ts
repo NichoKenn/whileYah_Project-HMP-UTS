@@ -29,7 +29,7 @@ export class KeranjangPage implements OnInit {
     this.muatKeranjang();
   }
 
-  ionViewDidEnter() {
+  ionViewWillEnter() {
     this.muatKeranjang();
   }
 

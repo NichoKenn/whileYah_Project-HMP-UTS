@@ -26,6 +26,14 @@ export class DashboardPage implements OnInit {
     if (!this.isLogin) {
       this.router.navigate(['/login']);
     }
+    this.refreshData();
+  }
+
+  ionViewWillEnter() {
+    this.refreshData();
+  }
+
+  refreshData() {
     this.produk = this.dataProduk.produk;
   }
 

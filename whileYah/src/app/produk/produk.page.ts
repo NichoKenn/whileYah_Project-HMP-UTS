@@ -32,7 +32,7 @@ export class ProdukPage implements OnInit {
     this.inisialisasiProduk();
   }
 
-  ionViewDidEnter() {
+  ionViewWillEnter() {
     this.inisialisasiProduk();
   }
 

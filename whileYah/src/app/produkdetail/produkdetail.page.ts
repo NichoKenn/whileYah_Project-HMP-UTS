@@ -32,7 +32,7 @@ export class ProdukdetailPage implements OnInit {
     });
   }
 
-  ionViewDidEnter() {
+  ionViewWillEnter() {
     this.produk = this.dataProduk.produk;
   }
 }

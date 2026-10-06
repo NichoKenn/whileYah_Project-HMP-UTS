@@ -59,9 +59,9 @@ export class ProdukbaruPage implements OnInit {
       const angkaTerakhir = parseInt(idTerakhir.substring(1));
       const angkaBaru = angkaTerakhir + 1;
 
-      return 'P' + angkaBaru.toString().padStart(3, '0');
+      return 'P' + angkaBaru;
     } else {
-      return 'P001';
+      return 'P1';
     }
   }
 
