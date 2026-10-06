@@ -148,7 +148,14 @@ export class DataProduk {
     }
 
     tambahProduk(p_id: string, p_nama: string, p_url: string, p_stok: number, p_harga_beli: number, p_harga_jual: number, p_kategori: string) {
-        if (this.produk.some(p => p.id === p_id)) {
+        let isExist = false;
+        for (let p of this.produk) {
+            if (p.id === p_id) {
+                isExist = true;
+                break;
+            }
+        }
+        if (isExist) {
             return false;
         }
         this.produk.push({

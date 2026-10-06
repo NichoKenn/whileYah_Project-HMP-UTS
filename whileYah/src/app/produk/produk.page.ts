@@ -96,14 +96,13 @@ export class ProdukPage implements OnInit {
     }
   }
 
-  // Animasi saat mouse menyorot tombol (Membesar)
   hoverMasuk(event: any) {
     const tombol = event.target;
 
     const animation = this.animationCtrl
       .create()
       .addElement(tombol)
-      .duration(200) // 0.2 detik
+      .duration(200)
       .easing('ease-out')
       .keyframes([
         { offset: 0, transform: 'scale(1)' },
@@ -112,7 +111,6 @@ export class ProdukPage implements OnInit {
     animation.fill('forwards').play();
   }
 
-  // Animasi saat mouse pergi dari tombol (Kembali normal)
   hoverKeluar(event: any) {
     const tombol = event.target;
 
