@@ -15,22 +15,24 @@
   </ion-header>
 
   <div id="frame">
-    <ion-avatar>
-      <ion-img src="https://cdn.pixabay.com/photo/2023/09/10/17/57/woman-8245439_1280.jpg"></ion-img>
+    <ion-avatar id="myAvatar">
+      <ion-img
+        src="https://cdn.pixabay.com/photo/2023/09/10/17/57/woman-8245439_1280.jpg"
+      ></ion-img>
     </ion-avatar>
   </div>
 
   <ion-card class="agaknaik">
     <ion-card-content class="tengah_atasberjarak">
       <ion-item lines="none">
-        <ion-label style="text-align: center;">Halo, {{namaPengguna}}</ion-label>
+        <ion-label style="text-align: center">Halo, {{namaPengguna}}</ion-label>
       </ion-item>
     </ion-card-content>
   </ion-card>
 
-  <ion-card>
+  <ion-card id="infoProfil">
     <ion-card-header>
-      <ion-label style="font-size: 18px;">Info Profil Toko</ion-label>
+      <ion-label style="font-size: 18px">Info Profil Toko</ion-label>
     </ion-card-header>
     <ion-card-content>
       <ion-item>
@@ -42,13 +44,23 @@
       <ion-item>
         <ion-label>
           <h2>Alamat</h2>
-          <p>Jl. Tenggilis Mejoyo No.4, Kali Raungkut, Kec.Rungkut, Surabaya, Jawa Timur 60923</p>
+          <p>
+            Jl. Tenggilis Mejoyo No.4, Kali Raungkut, Kec.Rungkut, Surabaya,
+            Jawa Timur 60923
+          </p>
         </ion-label>
       </ion-item>
       <ion-item>
         <ion-label>
           <h2>Bio</h2>
-          <p>Toko yang menyediakan berbagai kebutuhan pokok sehari-hari dengan harga terjangkau dan pilihan produk yang lengkap. Kami menyediakan beragam kebutuhan sembako, camilan, obat, minuman, dan kebersihan. Dengan mengutamakan kualitas, harga bersahabat, dan pelayanan yang ramah, kami berkomitmen untuk menjadi pilihan terpercaya bagi masyarakat dalam memenuhi kebutuhan sehari-hari.</p>
+          <p>
+            Toko yang menyediakan berbagai kebutuhan pokok sehari-hari dengan
+            harga terjangkau dan pilihan produk yang lengkap. Kami menyediakan
+            beragam kebutuhan sembako, camilan, obat, minuman, dan kebersihan.
+            Dengan mengutamakan kualitas, harga bersahabat, dan pelayanan yang
+            ramah, kami berkomitmen untuk menjadi pilihan terpercaya bagi
+            masyarakat dalam memenuhi kebutuhan sehari-hari.
+          </p>
         </ion-label>
       </ion-item>
       <ion-item>
@@ -60,9 +72,9 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-card>
+  <ion-card id="infoPribadi">
     <ion-card-header>
-      <ion-label style="font-size: 18px;">Info Pribadi</ion-label>
+      <ion-label style="font-size: 18px">Info Pribadi</ion-label>
     </ion-card-header>
     <ion-card-content>
       <ion-item>
@@ -91,5 +103,4 @@
       </ion-item>
     </ion-card-content>
   </ion-card>
-
 </ion-content>

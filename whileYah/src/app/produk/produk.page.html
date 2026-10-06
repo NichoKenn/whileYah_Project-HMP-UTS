@@ -45,20 +45,29 @@
               "
             ></ion-img>
             <ion-card-header style="padding-bottom: 5px">
-              <ion-item lines="none">
-                <ion-card-title style="font-size: 16px; line-height: 1.2"
-                  >{{data.nama}}</ion-card-title
+              <ion-card-title style="font-size: 16px; line-height: 1.2"
+                >{{data.nama}}</ion-card-title
+              >
+
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  margin-top: 8px;
+                "
+              >
+                <ion-card-subtitle
+                  [ngStyle]="{'color': data.stok <= 5 ? 'var(--ion-color-danger)' : 'var(--ion-color-medium)'}"
                 >
-                <ion-badge slot="end" color="secondary"
+                  Stok: {{data.stok}}
+                </ion-card-subtitle>
+                <ion-badge
+                  color="secondary"
+                  style="font-size: 10px; padding: 4px 6px"
                   >{{data.kategori}}</ion-badge
                 >
-              </ion-item>
-
-              <ion-card-subtitle
-                [ngStyle]="{'color': data.stok <= 5 ? 'var(--ion-color-danger)' : 'var(--ion-color-medium)'}"
-              >
-                Stok: {{data.stok}}
-              </ion-card-subtitle>
+              </div>
             </ion-card-header>
             <ion-card-content>
               <ion-text color="secondary"
