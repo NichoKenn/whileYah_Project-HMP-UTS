@@ -5,11 +5,6 @@ export interface itemTransaksi {
     idProduk: string;
     jumlah: number;
 }
-export interface Transaksi {
-    id: string;
-    tanggal: string;
-    items: itemTransaksi[];
-}
 
 @Injectable({
     providedIn: 'root',
@@ -127,12 +122,6 @@ export class DataTransaksi {
             tanggal: tanggal,
             items: items
         });
-    }
-
-    hapusTransaksi(index: number) {
-        if (index >= 0 && index < this.daftarTransaksi.length) {
-            this.daftarTransaksi.splice(index, 1);
-        }
     }
 
     getDetailItem(idProduk: string, jumlah: number) {
@@ -274,9 +263,11 @@ export class DataTransaksi {
                 jumlah: item.jumlah,
             });
 
-            let produkAsli = this.produkService.produk.find((p) => p.nama === item.nama);
-            if (produkAsli) {
-                produkAsli.stok -= item.jumlah;
+            for (let produk of this.produkService.produk) {
+                if (produk.id === item.id) {
+                    produk.stok -= item.jumlah;
+                    break;
+                }
             }
         }
 

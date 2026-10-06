@@ -174,9 +174,4 @@ export class DataProduk {
         }
     }
 
-    hapusProduk(index: number) {
-        if (index >= 0 && index < this.produk.length) {
-            this.produk.splice(index, 1);
-        }
-    }
 }
