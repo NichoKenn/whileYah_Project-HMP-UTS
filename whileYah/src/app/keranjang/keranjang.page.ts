@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataKeranjang } from '../data-keranjang';
 import { DataTransaksi } from '../data-transaksi';
-import { DataProduk } from '../data-produk';
 import { Login } from '../login';
 import { Router } from '@angular/router';
-import { itemTransaksi } from '../data-transaksi';
 
 @Component({
   selector: 'app-keranjang',
@@ -14,13 +12,11 @@ import { itemTransaksi } from '../data-transaksi';
 })
 export class KeranjangPage implements OnInit {
   isiKeranjang: any[] = [];
-  itemTransaksi: itemTransaksi[] = [];
   totalBelanja: number = 0;
   isLogin = false;
   constructor(
     private keranjangService: DataKeranjang,
     private transaksiService: DataTransaksi,
-    private dataProduk: DataProduk,
     private login: Login,
     private router: Router,
   ) {}
@@ -50,37 +46,8 @@ export class KeranjangPage implements OnInit {
       alert('Keranjang masih kosong!');
       return;
     }
-    let riwayatSaatIni = this.transaksiService.getSemuaTransaksi();
-    let idBaru = 'TRX-' + (riwayatSaatIni.length + 1);
-    let now = new Date();
-    let tanggalSekarang =
-      now.getFullYear() +
-      '-' +
-      String(now.getMonth() + 1).padStart(2, '0') +
-      '-' +
-      String(now.getDate()).padStart(2, '0');
-    let semuaProduk = this.dataProduk.produk;
 
-    for (let i = 0; i < this.isiKeranjang.length; i++) {
-      let item = this.isiKeranjang[i];
-      let totalHargaItem = item.harga_jual * item.jumlah;
-
-      this.itemTransaksi.push({
-        idProduk: item.id,
-        jumlah: item.jumlah,
-      });
-
-      let produkAsli = semuaProduk.find((p) => p.nama === item.nama);
-      if (produkAsli) {
-        produkAsli.stok -= item.jumlah;
-      }
-    }
-    this.transaksiService.tambahTransaksi(
-      idBaru,
-      tanggalSekarang,
-      this.itemTransaksi,
-    );
-    this.itemTransaksi = [];
+    let idBaru = this.transaksiService.prosesCheckout(this.isiKeranjang);
 
     this.keranjangService.kosongkanKeranjang();
     this.isiKeranjang = [];

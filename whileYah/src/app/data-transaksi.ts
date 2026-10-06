@@ -1,4 +1,4 @@
-import { DestroyRef, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { DataProduk } from './data-produk';
 
 export interface itemTransaksi {
@@ -15,7 +15,6 @@ export interface Transaksi {
     providedIn: 'root',
 })
 export class DataTransaksi {
-    isiTransaksi: any[] = [];
 
     constructor(private produkService: DataProduk) { }
 
@@ -128,8 +127,6 @@ export class DataTransaksi {
             tanggal: tanggal,
             items: items
         });
-
-        // this.displayAllTransaksi()
     }
 
     hapusTransaksi(index: number) {
@@ -158,28 +155,132 @@ export class DataTransaksi {
         return null;
     }
 
-    // displayAllTransaksi() {
-    //     this.isiTransaksi = []
-    //     for (let trans of this.daftarTransaksi) {
-    //         let detailItems: any[] = [];
-    //         let totalBelanja = 0;
+    getTanggalHariIni(): string {
+        const now = new Date();
+        const d = String(now.getDate()).padStart(2, '0');
+        const m = String(now.getMonth() + 1).padStart(2, '0');
+        const y = now.getFullYear();
+        return y + '-' + m + '-' + d;
+    }
 
-    //         for (let i of trans.items) {
-    //             let detail = this.getDetailItem(i.idProduk, i.jumlah);
-    //             if (detail) {
-    //                 detailItems.push(detail);
-    //                 totalBelanja += detail.subtotal;
-    //             }
-    //         }
+    hitungTotalTransaksiHariIni(): number {
+        let total = 0;
+        const today = this.getTanggalHariIni();
 
-    //         this.isiTransaksi.push({
-    //             id: trans.id,
-    //             tanggal: trans.tanggal,
-    //             items: detailItems,
-    //             totalPendapatan: totalBelanja
-    //         });
-    //     }
+        for (let trans of this.daftarTransaksi) {
+            if (trans.tanggal === today) {
+                for (let prodTrans of trans.items) {
+                    for (let prod of this.produkService.produk) {
+                        if (prodTrans.idProduk === prod.id) {
+                            total += prodTrans.jumlah * prod.harga_jual;
+                        }
+                    }
+                }
+            }
+        }
+        return total;
+    }
 
-    //     return this.isiTransaksi
-    // }
+    hitungTotalModalHariIni(): number {
+        let modal = 0;
+        const today = this.getTanggalHariIni();
+
+        for (let trans of this.daftarTransaksi) {
+            if (trans.tanggal === today) {
+                for (let prodTrans of trans.items) {
+                    for (let prod of this.produkService.produk) {
+                        if (prodTrans.idProduk === prod.id) {
+                            modal += prodTrans.jumlah * prod.harga_beli;
+                        }
+                    }
+                }
+            }
+        }
+        return modal;
+    }
+
+    hitungKeuntunganHariIni(): number {
+        return this.hitungTotalTransaksiHariIni() - this.hitungTotalModalHariIni();
+    }
+
+    cariProdukTerlaris(): string {
+        let penjualanProduk: any = {};
+        const today = this.getTanggalHariIni();
+
+        for (let trans of this.daftarTransaksi) {
+            if (trans.tanggal === today) {
+                for (let prodTrans of trans.items) {
+                    if (!penjualanProduk[prodTrans.idProduk]) {
+                        penjualanProduk[prodTrans.idProduk] = 0;
+                    }
+                    penjualanProduk[prodTrans.idProduk] += prodTrans.jumlah;
+                }
+            }
+        }
+
+        let maxJumlah = 0;
+        let idTerlaris = '';
+
+        for (let id in penjualanProduk) {
+            if (penjualanProduk[id] > maxJumlah) {
+                maxJumlah = penjualanProduk[id];
+                idTerlaris = id;
+            }
+        }
+
+        for (let prod of this.produkService.produk) {
+            if (prod.id === idTerlaris) {
+                return prod.nama;
+            }
+        }
+
+        return '-';
+    }
+
+    displayAllTransaksi(): any[] {
+        let hasil: any[] = [];
+        for (let trans of this.daftarTransaksi) {
+            let detailItems: any[] = [];
+            let totalBelanja = 0;
+
+            for (let i of trans.items) {
+                let detail = this.getDetailItem(i.idProduk, i.jumlah);
+                if (detail) {
+                    detailItems.push(detail);
+                    totalBelanja += detail.subtotal;
+                }
+            }
+
+            hasil.push({
+                id: trans.id,
+                tanggal: trans.tanggal,
+                items: detailItems,
+                totalPendapatan: totalBelanja
+            });
+        }
+        return hasil;
+    }
+
+    prosesCheckout(isiKeranjang: any[]): string {
+        let idBaru = 'TRX-' + (this.daftarTransaksi.length + 1);
+        let tanggalSekarang = this.getTanggalHariIni();
+        let itemTransaksiArr: itemTransaksi[] = [];
+
+        for (let i = 0; i < isiKeranjang.length; i++) {
+            let item = isiKeranjang[i];
+
+            itemTransaksiArr.push({
+                idProduk: item.id,
+                jumlah: item.jumlah,
+            });
+
+            let produkAsli = this.produkService.produk.find((p) => p.nama === item.nama);
+            if (produkAsli) {
+                produkAsli.stok -= item.jumlah;
+            }
+        }
+
+        this.tambahTransaksi(idBaru, tanggalSekarang, itemTransaksiArr);
+        return idBaru;
+    }
 }
