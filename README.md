@@ -106,6 +106,7 @@ Berikut adalah beberapa tampilan utama dari aplikasi SIMOBILE:
 
 ### 10. Halaman Pengaturan
 ![Halaman Pengaturan](whileYah/src/assets/image/pengaturan.png)
+![Halaman Pengaturan](whileYah/src/assets/image/darkmode.png)
 
 ### 11. Halaman Tentang Aplikasi
 ![Halaman Tentang Aplikasi](whileYah/src/assets/image/tentang.png)
