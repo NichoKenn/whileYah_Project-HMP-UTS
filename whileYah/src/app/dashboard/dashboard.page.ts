@@ -56,5 +56,8 @@ export class DashboardPage implements OnInit {
   produkTerlaris(): string {
     return this.dataTransaksi.cariProdukTerlaris();
   }
-}
 
+  jumlahProdukTerjual(): number {
+    return this.dataTransaksi.jumlahProdukTerjualHariIni();
+  }
+}
