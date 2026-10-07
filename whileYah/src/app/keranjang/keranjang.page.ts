@@ -14,6 +14,8 @@ export class KeranjangPage implements OnInit {
   isiKeranjang: any[] = [];
   totalBelanja: number = 0;
   isLogin = false;
+  public alertButtons = ['OK']
+
   constructor(
     private keranjangService: DataKeranjang,
     private transaksiService: DataTransaksi,
@@ -43,7 +45,7 @@ export class KeranjangPage implements OnInit {
   }
   checkout() {
     if (this.isiKeranjang.length === 0) {
-      alert('Keranjang masih kosong!');
+      // alert('Keranjang masih kosong!');
       return;
     }
 
@@ -52,6 +54,5 @@ export class KeranjangPage implements OnInit {
     this.keranjangService.kosongkanKeranjang();
     this.isiKeranjang = [];
     this.totalBelanja = 0;
-    alert('Transaksi ' + idBaru + ' berhasil dikonfirmasi!');
   }
 }

@@ -4,7 +4,14 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-buttons slot="end"> </ion-buttons>
+    <ion-buttons slot="end"> 
+      <ion-button routerLink="/keranjang" color="light">
+        <ion-icon name="cart"></ion-icon>
+      </ion-button>
+      <ion-button routerLink="/produkbaru" color="light">
+        <ion-icon name="add-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -124,7 +131,7 @@
     </ion-row>
   </ion-grid>
 
-  <ion-fab
+  <!-- <ion-fab
     vertical="bottom"
     horizontal="end"
     slot="fixed"
@@ -148,5 +155,5 @@
     >
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
-  </ion-fab>
+  </ion-fab> -->
 </ion-content>

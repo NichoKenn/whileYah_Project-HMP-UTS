@@ -57,9 +57,15 @@
       </ion-text>
 
       <ion-item lines="none">
-        <ion-button (click)="simpanEdit()" expand="block" style="width: 100%; margin-top: 16px;">
+        <ion-button id="btnUpdate" (click)="simpanEdit()" expand="block" style="width: 100%; margin-top: 16px;">
           Update Produk
         </ion-button>
+        <ion-alert
+          trigger="btnUpdate"
+          header="Info Edit"
+          message="Edit data produk sukses, data telah diubah!"
+          [buttons]="alertButtons"
+        ></ion-alert>
       </ion-item>
     </ion-list>
   </div>

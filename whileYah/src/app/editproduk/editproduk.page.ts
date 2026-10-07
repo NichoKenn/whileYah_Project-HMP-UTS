@@ -13,6 +13,7 @@ export class EditprodukPage implements OnInit {
   indexProduk!: number;
   isSubmitted: boolean = false;
   isLogin = false;
+  public alertButtons = ['OK'];
 
   nama: string = '';
   harga_beli: number = 0;
@@ -76,7 +77,7 @@ export class EditprodukPage implements OnInit {
         this.harga_jual === dataLama.harga_jual &&
         this.kategori === dataLama.kategori
       ) {
-        alert('Gagal! Tidak ada data yang diubah.');
+        // alert('Gagal! Tidak ada data yang diubah.');
         return;
       }
 
@@ -90,7 +91,6 @@ export class EditprodukPage implements OnInit {
         this.kategori,
       );
 
-      alert('SUKSES! Data diubah menjadi: ' + this.nama);
       this.isSubmitted = false;
       this.router.navigate(['/produk']);
     }

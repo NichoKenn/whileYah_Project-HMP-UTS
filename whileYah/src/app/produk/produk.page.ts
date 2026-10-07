@@ -91,7 +91,7 @@ export class ProdukPage implements OnInit {
         Number(item.harga_jual),
         item.jumlah,
       );
-      alert(`${item.jumlah} ${item.nama} berhasil ditambahkan ke keranjang!`);
+      // alert(`${item.jumlah} ${item.nama} berhasil ditambahkan ke keranjang!`);
       item.jumlah = 1;
     }
   }

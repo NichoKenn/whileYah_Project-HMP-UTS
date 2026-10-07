@@ -40,8 +40,14 @@
 <ion-footer *ngIf="isiKeranjang.length > 0">
   <ion-toolbar>
     <ion-title size="small"><ion-text color="secondary"><b>Rp {{ totalBelanja }}</b></ion-text></ion-title>
-    <ion-button slot="end" color="primary" class="ion-margin-end" (click)="checkout()">
+    <ion-button id="btnConfirm" slot="end" color="primary" class="ion-margin-end" (click)="checkout()">
       Konfirmasi Transaksi
     </ion-button>
+    <ion-alert
+        trigger="btnConfirm"
+        header="Info Transaksi"
+        message="Transaksi sukses, data telah ditambahkan!"
+        [buttons]="alertButtons"
+      ></ion-alert>
   </ion-toolbar>
 </ion-footer>
