@@ -95,34 +95,4 @@ export class ProdukPage implements OnInit {
     }
   }
 
-  hoverMasuk(event: any) {
-    const tombol = event.target;
-
-    const animation = this.animationCtrl
-      .create()
-      .addElement(tombol)
-      .duration(200)
-      .easing('ease-out')
-      .keyframes([
-        { offset: 0, transform: 'scale(1)' },
-        { offset: 1, transform: 'scale(1.15)' },
-      ]);
-    animation.fill('forwards').play();
-  }
-
-  hoverKeluar(event: any) {
-    const tombol = event.target;
-
-    const animation = this.animationCtrl
-      .create()
-      .addElement(tombol)
-      .duration(200)
-      .easing('ease-in')
-      .keyframes([
-        { offset: 0, transform: 'scale(1.15)' },
-        { offset: 1, transform: 'scale(1)' },
-      ]);
-
-    animation.fill('forwards').play();
-  }
 }
