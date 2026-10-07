@@ -111,9 +111,6 @@ export class DataTransaksi {
       ],
     },
   ];
-  getSemuaTransaksi() {
-    return this.daftarTransaksi;
-  }
 
   tambahTransaksi(id: string, tanggal: string, items: itemTransaksi[]) {
     this.daftarTransaksi.push({
