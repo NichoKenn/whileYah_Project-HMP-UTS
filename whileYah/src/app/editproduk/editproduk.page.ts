@@ -68,6 +68,18 @@ export class EditprodukPage implements OnInit {
 
     if (this.cekValidasi()) {
       let dataLama = this.dataProduk.produk[this.indexProduk];
+
+      if (
+        this.nama === dataLama.nama &&
+        this.stok === dataLama.stok &&
+        this.harga_beli === dataLama.harga_beli &&
+        this.harga_jual === dataLama.harga_jual &&
+        this.kategori === dataLama.kategori
+      ) {
+        alert('Gagal! Tidak ada data yang diubah.');
+        return;
+      }
+
       this.dataProduk.editProduk(
         this.indexProduk,
         this.nama,

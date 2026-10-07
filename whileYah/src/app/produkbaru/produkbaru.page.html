@@ -16,7 +16,7 @@
         </ion-input>
       </ion-item>
       <ion-text color="danger" *ngIf="isSubmitted && nama === ''">
-        <p style="padding-left: 16px; font-size: 12px; margin-top: 5px;">Nama produk wajib diisi.</p>
+        <p style="padding-left: 16px; font-size: 12px; margin-top: 5px; color: var(--ion-color-danger);">Nama produk wajib diisi.</p>
       </ion-text>
 
       <ion-item>
@@ -32,7 +32,7 @@
         </ion-input>
       </ion-item>
       <ion-text color="danger" *ngIf="isSubmitted && stok < 0">
-        <p style="padding-left: 16px; font-size: 12px; margin-top: 5px;">Stok tidak boleh negatif.</p>
+        <p style="padding-left: 16px; font-size: 12px; margin-top: 5px; color: var(--ion-color-danger);">Stok tidak boleh negatif.</p>
       </ion-text>
 
       <ion-item>
@@ -41,7 +41,7 @@
         </ion-input>
       </ion-item>
       <ion-text color="danger" *ngIf="isSubmitted && harga_beli <= 0">
-        <p style="padding-left: 16px; font-size: 12px; margin-top: 5px;">Harga beli harus lebih dari 0.</p>
+        <p style="padding-left: 16px; font-size: 12px; margin-top: 5px; color: var(--ion-color-danger);">Harga beli harus lebih dari 0.</p>
       </ion-text>
 
       <ion-item>
@@ -50,7 +50,7 @@
         </ion-input>
       </ion-item>
       <ion-text color="danger" *ngIf="isSubmitted && harga_jual <= 0">
-        <p style="padding-left: 16px; font-size: 12px; margin-top: 5px;">Harga jual harus lebih dari 0.</p>
+        <p style="padding-left: 16px; font-size: 12px; margin-top: 5px; color: var(--ion-color-danger);">Harga jual harus lebih dari 0.</p>
       </ion-text>
 
       <ion-item>
@@ -60,7 +60,7 @@
         </ion-select>
       </ion-item>
       <ion-text color="danger" *ngIf="isSubmitted && kategori === ''">
-        <p style="padding-left: 16px; font-size: 12px; margin-top: 5px;">Kategori wajib dipilih.</p>
+        <p style="padding-left: 16px; font-size: 12px; margin-top: 5px; color: var(--ion-color-danger);">Kategori wajib dipilih.</p>
       </ion-text>
 
       <ion-item lines="none">
