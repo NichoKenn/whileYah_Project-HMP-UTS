@@ -70,10 +70,44 @@ Catatan: Tekan `F12` (Inspect Element) pada browser dan aktifkan mode Device Too
 10. **Mengecek Profil & Tentang Aplikasi:** Buka tab **Profil** untuk melihat identitas pengguna. Lalu, buka Side Menu di pojok kiri atas untuk melihat halaman **Tentang Aplikasi**.
 11. **Mencoba Logout:** Terakhir, dari Side Menu, coba mengklik fitur **Logout** untuk menghapus sesi, di mana akan diarahkan kembali ke layar Login awal.
 
+## Screenshot Aplikasi
+
+Berikut adalah beberapa tampilan utama dari aplikasi SIMOBILE:
+
+### 1. Halaman Login
+![Halaman Login](whileYah/src/assets/image/login.png)
+
+### 2. Halaman Dashboard
+![Halaman Dashboard](whileYah/src/assets/image/dashboard.png)
+
+### 3. Halaman Daftar Produk
+![Halaman Produk](whileYah/src/assets/image/produk.png)
+
+### 4. Halaman Tambah Produk Baru
+![Halaman Tambah Produk](whileYah/src/assets/image/produkbaru.png)
+
+### 5. Halaman Keranjang Belanja
+![Halaman Keranjang](whileYah/src/assets/image/keranjang.png)
+
+### 6. Halaman Riwayat Transaksi
+![Halaman Transaksi](whileYah/src/assets/image/transaksi.png)
+
+### 7. Halaman Profil Pengguna
+![Halaman Profil](whileYah/src/assets/image/profil.png)
+
+### 8. Halaman Pengaturan
+![Halaman Pengaturan](whileYah/src/assets/image/pengaturan.png)
+
+### 9. Halaman Tentang Aplikasi
+![Halaman Tentang Aplikasi](whileYah/src/assets/image/tentang.png)
+
+### 10. Fitur Logout
+![Fitur Logout](whileYah/src/assets/image/logout.png)
+
+
 **Dibuat oleh:** whileYah
 **Anggota Kelompok:**
 - Leonardo Edbert Yongnata (160424024)
 - Nicholas Kenneth Mulyajaya (160424032)
 - Stefanus Peter Hartono (160424118)
 - Hans Stephen Santoso (160424042)
-**Mata Kuliah:** Hybrid Mobile Programming (HMP)
