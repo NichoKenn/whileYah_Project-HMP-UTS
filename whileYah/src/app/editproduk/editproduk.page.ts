@@ -77,7 +77,6 @@ export class EditprodukPage implements OnInit {
         this.harga_jual === dataLama.harga_jual &&
         this.kategori === dataLama.kategori
       ) {
-        // alert('Gagal! Tidak ada data yang diubah.');
         return;
       }
 

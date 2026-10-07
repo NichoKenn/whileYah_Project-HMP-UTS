@@ -45,7 +45,6 @@ export class KeranjangPage implements OnInit {
   }
   checkout() {
     if (this.isiKeranjang.length === 0) {
-      // alert('Keranjang masih kosong!');
       return;
     }
 

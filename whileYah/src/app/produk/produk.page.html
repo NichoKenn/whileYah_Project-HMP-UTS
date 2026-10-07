@@ -4,7 +4,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-buttons slot="end"> 
+    <ion-buttons slot="end">
       <ion-button routerLink="/keranjang" color="light">
         <ion-icon name="cart"></ion-icon>
       </ion-button>
@@ -21,107 +21,68 @@
       <ion-title size="large">Produk</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-searchbar
-    [(ngModel)]="searchTerm"
-    placeholder="Ketik nama barang disini..."
-  ></ion-searchbar>
+  <ion-searchbar [(ngModel)]="searchTerm" placeholder="Ketik nama barang disini..."></ion-searchbar>
 
   <ion-grid>
     <ion-row *ngFor="let produk2 of chunkArray(filterProduk(), 2)">
       <ion-col *ngFor="let data of produk2">
-        <ion-card
-          style="
+        <ion-card style="
             margin: 5px;
             height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-          "
-        >
-          <div
-            routerLink="/produkdetail/{{getOriginalIndex(data)}}"
-            style="cursor: pointer"
-          >
-            <ion-img
-              [src]="data.url ? data.url : 'https://ubaya.cloud/no_image.jpg'"
-              style="
+          ">
+          <div routerLink="/produkdetail/{{getOriginalIndex(data)}}" style="cursor: pointer">
+            <ion-img [src]="data.url ? data.url : 'https://ubaya.cloud/no_image.jpg'" style="
                 height: 120px;
                 object-fit: contain;
                 background: white;
                 padding: 5px;
-              "
-            ></ion-img>
+              "></ion-img>
             <ion-card-header style="padding-bottom: 5px">
-              <ion-card-title style="font-size: 16px; line-height: 1.2"
-                >{{data.nama}}</ion-card-title
-              >
+              <ion-card-title style="font-size: 16px; line-height: 1.2">{{data.nama}}</ion-card-title>
 
-              <div
-                style="
+              <div style="
                   display: flex;
                   justify-content: space-between;
                   align-items: center;
                   margin-top: 8px;
-                "
-              >
+                ">
                 <ion-card-subtitle
-                  [ngStyle]="{'color': data.stok <= 5 ? 'var(--ion-color-danger)' : 'var(--ion-color-medium)'}"
-                >
+                  [ngStyle]="{'color': data.stok <= 5 ? 'var(--ion-color-danger)' : 'var(--ion-color-medium)'}">
                   Stok: {{data.stok}}
                 </ion-card-subtitle>
-                <ion-badge
-                  color="secondary"
-                  style="font-size: 10px; padding: 4px 6px"
-                  >{{data.kategori}}</ion-badge
-                >
+                <ion-badge color="secondary" style="font-size: 10px; padding: 4px 6px">{{data.kategori}}</ion-badge>
               </div>
             </ion-card-header>
             <ion-card-content>
-              <ion-text color="secondary"
-                ><b style="font-size: 16px">Rp {{data.harga_jual}}</b></ion-text
-              >
+              <ion-text color="secondary"><b style="font-size: 16px">Rp {{data.harga_jual}}</b></ion-text>
             </ion-card-content>
           </div>
 
           <div style="padding: 10px">
-            <div
-              style="
+            <div style="
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
                 margin-bottom: 10px;
-              "
-            >
-              <ion-button
-                fill="outline"
-                size="small"
-                color="secondary"
-                (click)="kurangJumlah(data)"
-                [disabled]="data.jumlah <= 1 || data.stok === 0"
-              >
+              ">
+              <ion-button fill="outline" size="small" color="secondary" (click)="kurangJumlah(data)"
+                [disabled]="data.jumlah <= 1 || data.stok === 0">
                 <ion-icon name="remove"></ion-icon>
               </ion-button>
               <span style="font-weight: bold; font-size: 16px">
                 {{ data.stok === 0 ? 0 : data.jumlah }}
               </span>
-              <ion-button
-                fill="outline"
-                size="small"
-                color="secondary"
-                (click)="tambahJumlah(data)"
-                [disabled]="data.jumlah >= data.stok || data.stok === 0"
-              >
+              <ion-button fill="outline" size="small" color="secondary" (click)="tambahJumlah(data)"
+                [disabled]="data.jumlah >= data.stok || data.stok === 0">
                 <ion-icon name="add"></ion-icon>
               </ion-button>
             </div>
 
-            <ion-button
-              expand="block"
-              size="small"
-              color="primary"
-              [disabled]="data.stok === 0"
-              (click)="tambahKeKeranjang(data)"
-            >
+            <ion-button expand="block" size="small" color="primary" [disabled]="data.stok === 0"
+              (click)="tambahKeKeranjang(data)">
               <ion-icon name="cart" slot="start"></ion-icon>
               {{ data.stok === 0 ? 'HABIS' : 'TAMBAH' }}
             </ion-button>
@@ -130,30 +91,4 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-
-  <!-- <ion-fab
-    vertical="bottom"
-    horizontal="end"
-    slot="fixed"
-    class="fab-keranjang"
-  >
-    <ion-fab-button
-      routerLink="/keranjang"
-      color="primary"
-      (mouseenter)="hoverMasuk($event)"
-      (mouseleave)="hoverKeluar($event)"
-    >
-      <ion-icon name="cart"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="fab-kiri">
-    <ion-fab-button
-      routerLink="/produkbaru"
-      color="secondary"
-      (mouseenter)="hoverMasuk($event)"
-      (mouseleave)="hoverKeluar($event)"
-    >
-      <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-  </ion-fab> -->
 </ion-content>
