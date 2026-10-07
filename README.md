@@ -86,22 +86,28 @@ Berikut adalah beberapa tampilan utama dari aplikasi SIMOBILE:
 ### 4. Halaman Tambah Produk Baru
 ![Halaman Tambah Produk](whileYah/src/assets/image/produkbaru.png)
 
-### 5. Halaman Keranjang Belanja
+### 5. Halaman Detail Produk
+![Halaman Detail Produk](whileYah/src/assets/image/produkdetail.png)
+
+### 6. Halaman Edit Produk
+![Halaman Edit Produk](whileYah/src/assets/image/editproduk.png)
+
+### 7. Halaman Keranjang Belanja
 ![Halaman Keranjang](whileYah/src/assets/image/keranjang.png)
 
-### 6. Halaman Riwayat Transaksi
+### 8. Halaman Riwayat Transaksi
 ![Halaman Transaksi](whileYah/src/assets/image/transaksi.png)
 
-### 7. Halaman Profil Pengguna
+### 9. Halaman Profil Pengguna
 ![Halaman Profil](whileYah/src/assets/image/profil.png)
 
-### 8. Halaman Pengaturan
+### 10. Halaman Pengaturan
 ![Halaman Pengaturan](whileYah/src/assets/image/pengaturan.png)
 
-### 9. Halaman Tentang Aplikasi
+### 11. Halaman Tentang Aplikasi
 ![Halaman Tentang Aplikasi](whileYah/src/assets/image/tentang.png)
 
-### 10. Fitur Logout
+### 12. Fitur Logout
 ![Fitur Logout](whileYah/src/assets/image/logout.png)
 
 
