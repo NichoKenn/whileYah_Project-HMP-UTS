@@ -19,7 +19,11 @@
 3. Editor Kode, seperti Visual Studio Code
 
 ## Cara Instalasi  
-1. **Membuat Proyek Baru:**  
+1. **Instalasi NodeJS dan Ionic:**  
+   Download **Nodejs** melalui tautan ini `https://nodejs.org/en/`  
+   Buka terminal dan lakukan instalasi ionic dengan perintah `npm install -g @ionic/cli`
+
+2. **Membuat Proyek Baru:**  
    Buka terminal dan jalankan perintah:  
    `ionic start whileYah blank`  
    Memilih `Angular`      
@@ -29,7 +33,7 @@
    Lalu masuk ke dalam folder proyek:  
    `cd whileYah`
 
-2. **Membuat Halaman:**
+3. **Membuat Halaman:**
    Jalankan perintah untuk membuat semua halaman komponen yang digunakan:  
    `ionic generate page login`    
    `ionic generate page dashboard`    
@@ -43,7 +47,7 @@
    `ionic generate page produkdetail`    
    `ionic generate page editproduk`    
 
-3. **Membuat Service (Pusat Logika & Data):**
+4. **Membuat Service (Pusat Logika & Data):**
    Untuk menerapkan konsep modular dan pemisahan logika bisnis dari UI, buatlah file-file service berikut:  
    `ionic generate service data-produk`    
    `ionic generate service data-transaksi`    
